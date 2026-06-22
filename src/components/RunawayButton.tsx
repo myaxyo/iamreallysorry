@@ -10,7 +10,7 @@ export default function RunawayButton() {
   const [noAttempts, setNoAttempts] = useState(0);
   const [forgiven, setForgiven] = useState(false);
   const [noSize, setNoSize] = useState(1);
-  const { play } = useSounds();
+  const { play, stop } = useSounds();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const noMessages = [
@@ -56,6 +56,7 @@ export default function RunawayButton() {
   const handleYes = () => {
     setForgiven(true);
     play("airhorn");
+    stop("sadViolin");
 
     // Epic confetti explosion
     const duration = 5000;

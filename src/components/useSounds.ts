@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 
 const SOUNDS = {
   sadViolin: "/sounds/sad_violin.mp3",
@@ -26,27 +26,30 @@ if (typeof window !== "undefined") {
   window.addEventListener("scroll", markInteracted);
 }
 
-export function useSounds() {
-  const audioRefs = useRef<Map<string, HTMLAudioElement>>(new Map());
+// Global audio cache so all components share the same instances
+const audioCache = new Map<string, HTMLAudioElement>();
 
+function getAudio(name: SoundName): HTMLAudioElement {
+  let audio = audioCache.get(name);
+  if (!audio) {
+    audio = new Audio(SOUNDS[name]);
+    audioCache.set(name, audio);
+  }
+  return audio;
+}
+
+export function useSounds() {
   const play = useCallback((name: SoundName, volume = 0.7) => {
     if (!userHasInteracted) return;
-    let audio = audioRefs.current.get(name);
-    if (!audio) {
-      audio = new Audio(SOUNDS[name]);
-      audioRefs.current.set(name, audio);
-    }
+    const audio = getAudio(name);
     audio.volume = volume;
+    audio.loop = false;
     audio.currentTime = 0;
     audio.play().catch(() => {});
   }, []);
 
   const playLoop = useCallback((name: SoundName, volume = 0.3) => {
-    let audio = audioRefs.current.get(name);
-    if (!audio) {
-      audio = new Audio(SOUNDS[name]);
-      audioRefs.current.set(name, audio);
-    }
+    const audio = getAudio(name);
     audio.volume = volume;
     audio.loop = true;
     audio.currentTime = 0;
@@ -54,7 +57,7 @@ export function useSounds() {
   }, []);
 
   const stop = useCallback((name: SoundName) => {
-    const audio = audioRefs.current.get(name);
+    const audio = audioCache.get(name);
     if (audio) {
       audio.pause();
       audio.currentTime = 0;
