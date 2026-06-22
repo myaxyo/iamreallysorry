@@ -2,11 +2,14 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { useSounds } from "./useSounds";
 
 export default function SorryMeter() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [percentage, setPercentage] = useState(0);
+  const { play } = useSounds();
+  const boomPlayed = useRef(false);
 
   useEffect(() => {
     if (isInView) {
@@ -21,12 +24,17 @@ export default function SorryMeter() {
           } else {
             setPercentage(current);
           }
+          // Play vine boom when it crosses 100
+          if (current >= 100 && !boomPlayed.current) {
+            boomPlayed.current = true;
+            play("vineBoom");
+          }
         }, 20);
         return () => clearInterval(interval);
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [isInView]);
+  }, [isInView, play]);
 
   return (
     <div ref={ref} className="w-full max-w-lg mx-auto">

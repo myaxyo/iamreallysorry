@@ -3,12 +3,14 @@
 import { useState, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
+import { useSounds } from "./useSounds";
 
 export default function RunawayButton() {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
   const [noAttempts, setNoAttempts] = useState(0);
   const [forgiven, setForgiven] = useState(false);
   const [noSize, setNoSize] = useState(1);
+  const { play } = useSounds();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const noMessages = [
@@ -38,6 +40,7 @@ export default function RunawayButton() {
   ];
 
   const handleNoHover = useCallback(() => {
+    play("bruh");
     // Use container bounds for mobile-safe positioning
     const maxX = containerRef.current
       ? containerRef.current.offsetWidth / 2 - 60
@@ -52,6 +55,7 @@ export default function RunawayButton() {
 
   const handleYes = () => {
     setForgiven(true);
+    play("airhorn");
 
     // Epic confetti explosion
     const duration = 5000;

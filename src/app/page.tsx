@@ -1,11 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import DramaticText from "@/components/DramaticText";
 import SorryMeter from "@/components/SorryMeter";
 import RunawayButton from "@/components/RunawayButton";
 import FloatingEmojis from "@/components/FloatingEmojis";
+import { useSounds } from "@/components/useSounds";
 
 // Dynamic import for Three.js (SSR breaks it)
 const Heart3D = dynamic(() => import("@/components/Heart3D"), { ssr: false });
@@ -42,9 +44,32 @@ const promises = [
 ];
 
 export default function Home() {
+  const { playLoop, stop } = useSounds();
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const toggleMusic = () => {
+    if (musicPlaying) {
+      stop("sadViolin");
+    } else {
+      playLoop("sadViolin", 0.4);
+    }
+    setMusicPlaying(!musicPlaying);
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
       <FloatingEmojis />
+
+      {/* Music toggle */}
+      <motion.button
+        className="fixed top-4 right-4 z-50 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 hover:text-pink-400 hover:border-pink-500/50 transition-colors cursor-pointer"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
+        onClick={toggleMusic}
+      >
+        {musicPlaying ? "🎵 Выкл. музыку" : "🎵 Вкл. грустную музыку"}
+      </motion.button>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
