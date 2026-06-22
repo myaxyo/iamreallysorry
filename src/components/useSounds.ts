@@ -11,11 +11,26 @@ const SOUNDS = {
 
 type SoundName = keyof typeof SOUNDS;
 
+// Track whether user has interacted with the page
+let userHasInteracted = false;
+
+if (typeof window !== "undefined") {
+  const markInteracted = () => {
+    userHasInteracted = true;
+    window.removeEventListener("click", markInteracted);
+    window.removeEventListener("touchstart", markInteracted);
+    window.removeEventListener("scroll", markInteracted);
+  };
+  window.addEventListener("click", markInteracted);
+  window.addEventListener("touchstart", markInteracted);
+  window.addEventListener("scroll", markInteracted);
+}
+
 export function useSounds() {
   const audioRefs = useRef<Map<string, HTMLAudioElement>>(new Map());
 
   const play = useCallback((name: SoundName, volume = 0.7) => {
-    // Reuse or create audio element
+    if (!userHasInteracted) return;
     let audio = audioRefs.current.get(name);
     if (!audio) {
       audio = new Audio(SOUNDS[name]);
@@ -23,9 +38,7 @@ export function useSounds() {
     }
     audio.volume = volume;
     audio.currentTime = 0;
-    audio.play().catch(() => {
-      // Autoplay blocked — user hasn't interacted yet, ignore
-    });
+    audio.play().catch(() => {});
   }, []);
 
   const playLoop = useCallback((name: SoundName, volume = 0.3) => {
