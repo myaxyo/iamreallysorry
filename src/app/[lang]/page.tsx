@@ -18,7 +18,8 @@ export default async function Page({ params, searchParams }: PageProps) {
   return (
     <>
       <ApologyExperience dict={dict} name={name} lang={lang} />
-      <LandingContent dict={dict} lang={lang} />
+      {/* Only show SEO landing content when no name is provided (discovery mode) */}
+      {!name && <LandingContent dict={dict} lang={lang} />}
     </>
   );
 }
