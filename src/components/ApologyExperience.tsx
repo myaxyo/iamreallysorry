@@ -26,13 +26,15 @@ interface Props {
   dict: Dict;
   name?: string;
   lang: string;
+  isReceiver?: boolean;
 }
 
-export default function ApologyExperience({ dict, name: initialName, lang }: Props) {
+export default function ApologyExperience({ dict, name, lang, isReceiver }: Props) {
   const { playLoop, stop } = useSounds();
   const [musicPlaying, setMusicPlaying] = useState(false);
-  const [personName, setPersonName] = useState(initialName || "");
-  const [started, setStarted] = useState(!!initialName);
+
+  void lang; // used for potential future features
+  void isReceiver;
 
   const toggleMusic = () => {
     if (musicPlaying) {
@@ -42,58 +44,6 @@ export default function ApologyExperience({ dict, name: initialName, lang }: Pro
     }
     setMusicPlaying(!musicPlaying);
   };
-
-  // Name entry screen
-  if (!started) {
-    return (
-      <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white flex flex-col items-center justify-center px-4">
-        <motion.div
-          className="text-center max-w-md w-full"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-black mb-4">
-            <span className="bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
-              {dict.hero.heading}
-            </span>
-          </h1>
-          <p className="text-gray-400 mb-8 text-lg">{dict.hero.subtitle}</p>
-
-          <div className="space-y-4">
-            <input
-              type="text"
-              value={personName}
-              onChange={(e) => setPersonName(e.target.value)}
-              placeholder={dict.hero.namePlaceholder}
-              className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white text-center text-xl placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && personName.trim()) setStarted(true);
-              }}
-              autoFocus
-            />
-            <motion.button
-              className="w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              disabled={!personName.trim()}
-              onClick={() => {
-                if (personName.trim()) {
-                  // Update URL with name param for shareability
-                  const url = new URL(window.location.href);
-                  url.searchParams.set("name", personName.trim());
-                  window.history.replaceState({}, "", url.toString());
-                  setStarted(true);
-                }
-              }}
-            >
-              →
-            </motion.button>
-          </div>
-        </motion.div>
-      </main>
-    );
-  }
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
@@ -109,37 +59,6 @@ export default function ApologyExperience({ dict, name: initialName, lang }: Pro
       >
         {musicPlaying ? dict.music.off : dict.music.on}
       </motion.button>
-
-      {/* Language switcher */}
-      <motion.div
-        className="fixed top-4 left-4 z-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <select
-          className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-full px-3 py-2 text-sm text-gray-300 cursor-pointer focus:outline-none focus:border-pink-500"
-          value={lang}
-          onChange={(e) => {
-            const newLang = e.target.value;
-            const url = new URL(window.location.href);
-            url.pathname = `/${newLang}`;
-            window.location.href = url.toString();
-          }}
-        >
-          <option value="en">🇬🇧 English</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="pt">🇧🇷 Português</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-          <option value="ar">🇸🇦 العربية</option>
-          <option value="hi">🇮🇳 हिंदी</option>
-          <option value="ja">🇯🇵 日本語</option>
-          <option value="ko">🇰🇷 한국어</option>
-        </select>
-      </motion.div>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
@@ -158,14 +77,14 @@ export default function ApologyExperience({ dict, name: initialName, lang }: Pro
             {dict.hero.subtitle}
           </motion.p>
 
-          {personName && (
+          {name && (
             <motion.p
               className="text-3xl md:text-5xl font-bold text-pink-300 mb-4"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              {personName} 💕
+              {name} 💕
             </motion.p>
           )}
 
@@ -286,7 +205,7 @@ export default function ApologyExperience({ dict, name: initialName, lang }: Pro
           text={dict.forgive.title}
           className="text-2xl md:text-5xl font-bold text-white mb-12 md:mb-16"
         />
-        <RunawayButtonI18n dict={dict.forgive} name={personName} />
+        <RunawayButtonI18n dict={dict.forgive} name={name} />
       </section>
 
       {/* Footer */}

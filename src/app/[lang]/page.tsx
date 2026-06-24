@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale, type Locale } from "./dictionaries";
 import ApologyExperience from "@/components/ApologyExperience";
+import CreatorFlow from "@/components/CreatorFlow";
 import LandingContent from "@/components/LandingContent";
 
 interface PageProps {
@@ -15,11 +16,16 @@ export default async function Page({ params, searchParams }: PageProps) {
   const dict = await getDictionary(lang as Locale);
   const { name } = await searchParams;
 
+  // If there's a name param, this is a RECEIVER viewing the apology
+  if (name) {
+    return <ApologyExperience dict={dict} name={name} lang={lang} isReceiver />;
+  }
+
+  // Otherwise, this is a CREATOR discovering or building an apology
   return (
     <>
-      <ApologyExperience dict={dict} name={name} lang={lang} />
-      {/* Only show SEO landing content when no name is provided (discovery mode) */}
-      {!name && <LandingContent dict={dict} lang={lang} />}
+      <CreatorFlow lang={lang} />
+      <LandingContent dict={dict} lang={lang} />
     </>
   );
 }
