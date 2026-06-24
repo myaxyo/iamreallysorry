@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Es Tut Mir Wirklich Leid — Erstelle eine Lustige Entschuldigungs-Website Kostenlos",
+    "description": "Erstelle eine personalisierte Entschuldigungsseite mit 3D-Animationen, Meme-Sounds und einem Nein-Button, der wegläuft. Der lustigste Weg, sich online bei deiner Freundin, deinem Freund oder Kumpel zu entschuldigen.",
+    "keywords": "entschuldigungs website, sich entschuldigen online, sorry seite, lustige entschuldigung, entschuldigung webseite, sorry website erstellen, online entschuldigung"
+  },
+  "hero": {
+    "subtitle": "Eine formelle Erklärung der",
+    "nameLabel": "für",
+    "namePlaceholder": "Namen eingeben",
+    "heading": "ES TUT MIR LEID",
+    "subtext": "Also... wirklich, ehrlich, zutiefst leid",
+    "scrollHint": "Scroll runter (ich hab viel zu sagen)"
+  },
+  "meter": {
+    "title": "Lass mich meine Reue quantifizieren",
+    "label": "Wie leid es mir tut:",
+    "low": "Ein bisschen",
+    "mid": "Sehr",
+    "high": "Extrem",
+    "error": "FEHLER: Sorry-Level überschreitet maximale Kapazität",
+    "footnote": "Wissenschaftler bestätigen: Niemand in der Geschichte hat sich jemals so schlecht gefühlt. Die Skala war nicht darauf vorbereitet."
+  },
+  "reasons": {
+    "title": "Ich weiß, was ich falsch gemacht habe",
+    "items": [
+      { "emoji": "🤡", "title": "Ich war ein Clown", "text": "Nicht die lustige Art. Die gruselige Art, die Kindergeburtstage ruiniert." },
+      { "emoji": "🧠", "title": "Mein Gehirn hat den Chat verlassen", "text": "Es ist in den Urlaub gefahren, ohne mir Bescheid zu geben. Null Gedanken, nur Vibes (schlechte)." },
+      { "emoji": "🗑️", "title": "Ich hab mich wie Müll verhalten", "text": "Und nicht mal recycelbarer Müll. Direkt-auf-die-Deponie-Verhalten." },
+      { "emoji": "💀", "title": "Ich weiß, ich hab's verbockt", "text": "Wenn meine Entschuldigung ein Film wäre, wäre es eine 12-teilige Serie. Mit Director's Cut." }
+    ]
+  },
+  "promises": {
+    "title": "Meine feierlichen Versprechen",
+    "subtitle": "(Ehrenwort, Hand aufs Herz, das volle Programm)",
+    "items": [
+      "Ich werde wirklich zuhören, wenn du redest (nicht nur nicken und ans Essen denken)",
+      "Ich werde mich an wichtige Termine erinnern (stelle gerade 47 Erinnerungen ein)",
+      "Ich höre auf mit dem Ding, das dich nervt (du weißt schon welches)",
+      "Ich gebe dir die Fernbedienung ohne Kampf (meistens)",
+      "Ich gebe schneller zu, wenn ich falsch liege (ab jetzt: ICH LAG FALSCH)"
+    ]
+  },
+  "forgive": {
+    "title": "Jetzt der Moment der Wahrheit...",
+    "question": "Also... verzeihst du mir?",
+    "yes": ["Ja, ich verzeihe dir", "JA!", "Ja! Ja! Ja!", "JAAAA!!!", "JA (klick endlich!)", "JA BITTE!", "ICH FLEHE DICH AN", "KLICK MIIICH", "JA!!! 🥺🥺🥺", "JA!!!"],
+    "no": ["Nein", "Bist du sicher?", "Wirklich sicher?", "Denk nochmal nach!", "Letzte Chance!", "Bestimmt nicht!", "Du könntest es bereuen", "Überleg's dir nochmal!", "Bist du grausam?!", "Herzlos!"],
+    "hint": "(Der Nein-Button bekommt Angst... vielleicht einfach Ja klicken? 😅)",
+    "success": "ICH LIEBE DICH!!!",
+    "successSub": "Ich verspreche, besser zu werden. Du bedeutest mir alles."
+  },
+  "music": {
+    "on": "🎵 Traurige Musik spielen",
+    "off": "🎵 Musik stoppen"
+  },
+  "footer": {
+    "madeWith": "Gemacht mit 100% echten Gewissensbissen und einer Prise Verzweiflung",
+    "copyright": "© 2026 iamreallysorry.com — Alle Rechte vorbehalten durch Schuldgefühle"
+  },
+  "landing": {
+    "h1": "Erstelle Deine Entschuldigungs-Website — Kostenlos & Lustig",
+    "h2_1": "Der Kreativste Weg, Sich Online zu Entschuldigen",
+    "p1": "Hör auf, langweilige Textnachrichten zu schicken. Erstelle eine personalisierte, interaktive Entschuldigungsseite mit 3D-Animationen, Meme-Sounds und einem Button, der buchstäblich wegläuft, wenn jemand Nein klicken will. Teile den Link und sieh zu, wie sie lächeln.",
+    "h2_2": "So Funktioniert's",
+    "steps": ["Namen eingeben", "Die Magie beobachten", "Link teilen"],
+    "h2_3": "Warum iamreallysorry.com?",
+    "features": [
+      "3D-Animation eines schlagenden Herzens",
+      "Weglaufender Nein-Button (unmöglich, Nein zu sagen!)",
+      "Meme-Soundeffekte (traurige Geige, Vine Boom, Hupe)",
+      "Sorry-Meter, das über 100% hinausgeht",
+      "Konfetti-Explosion bei Vergebung",
+      "Funktioniert auf Handy und Desktop",
+      "Kostenlos — keine Anmeldung nötig"
+    ],
+    "h2_faq": "Häufig Gestellte Fragen",
+    "faq": [
+      { "q": "Ist diese Website kostenlos?", "a": "Ja, komplett kostenlos. Keine Anmeldung, keine versteckten Kosten." },
+      { "q": "Kann ich die Entschuldigung anpassen?", "a": "Ja! Gib den Namen ein und die gesamte Seite wird personalisiert." },
+      { "q": "Funktioniert es auf dem Handy?", "a": "Absolut. Vollständig responsive mit Touch-Unterstützung für den weglaufenden Button." },
+      { "q": "Kann ich es für meinen Freund/meine Freundin benutzen?", "a": "Ja! Es funktioniert für alle — Freundin, Freund, beste(r) Freund(in), Partner(in) oder Familie." },
+      { "q": "Wie teile ich es?", "a": "Einfach den Link senden. Der Name ist in der URL eingebettet für ein personalisiertes Erlebnis." }
+    ],
+    "cta": "Erstelle Jetzt Deine Entschuldigung"
+  }
+}

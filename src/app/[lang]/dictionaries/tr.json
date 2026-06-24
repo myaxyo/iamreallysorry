@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Gerçekten Özür Dilerim — Ücretsiz ve Komik Bir Özür Sitesi Oluştur",
+    "description": "3D animasyonlar, meme sesleri ve kaçan Hayır butonu ile kişiselleştirilmiş bir özür sayfası oluştur. Sevgiline, erkek arkadaşına veya arkadaşına online özür dilemenin en komik yolu.",
+    "keywords": "özür dileme sitesi, online özür dile, özür sayfası, komik özür sayfası, özür web sitesi, online özür oluşturucu, özür dileme"
+  },
+  "hero": {
+    "subtitle": "Resmi bir beyan",
+    "nameLabel": "kime",
+    "namePlaceholder": "Adını gir",
+    "heading": "ÖZÜR DİLERİM",
+    "subtext": "Yani... gerçekten, cidden, derinden özür dilerim",
+    "scrollHint": "Aşağı kaydır (söyleyecek çok şeyim var)"
+  },
+  "meter": {
+    "title": "Pişmanlığımı sayılarla ifade edeyim",
+    "label": "Ne kadar üzgünüm:",
+    "low": "Biraz",
+    "mid": "Çok",
+    "high": "Aşırı",
+    "error": "HATA: Üzgünlük seviyesi maksimum kapasiteyi aşıyor",
+    "footnote": "Bilim insanları doğruluyor: tarihte hiç kimse bu kadar pişman olmamış. Ölçek buna hazır değildi."
+  },
+  "reasons": {
+    "title": "Ne yaptığımı biliyorum",
+    "items": [
+      { "emoji": "🤡", "title": "Palyaço gibiydim", "text": "Komik türden değil. Doğum günü partilerini mahveden korkunç türden." },
+      { "emoji": "🧠", "title": "Beynim sohbetten çıktı", "text": "Tatile gitti ve bana söylemeyi unuttu. Sıfır düşünce, sadece kötü enerjiler." },
+      { "emoji": "🗑️", "title": "Çöp gibi davrandım", "text": "Geri dönüştürülebilir çöp bile değil. Direkt çöplüğe gidecek davranış." },
+      { "emoji": "💀", "title": "Berbat ettiğimi biliyorum", "text": "Özrüm bir film olsaydı, 12 bölümlük bir dizi olurdu. Yönetmen kurgusuyla birlikte." }
+    ]
+  },
+  "promises": {
+    "title": "Kutsal vaatlerim",
+    "subtitle": "(Serçe parmağı yemini, kalbimin üzerine, her şey dahil)",
+    "items": [
+      "Sen konuşurken gerçekten dinleyeceğim (yemek düşünürken başımı sallamak yok)",
+      "Önemli tarihleri hatırlayacağım (şu an 47 hatırlatıcı kuruyorum)",
+      "Seni rahatsız eden o şeyi yapmayı bırakacağım (hangisi olduğunu biliyorsun)",
+      "Kumandayı kavga etmeden vereceğim (çoğu zaman)",
+      "Hatalı olduğumu daha çabuk kabul edeceğim (şu andan başlayarak: HAKSLIYDIM)"
+    ]
+  },
+  "forgive": {
+    "title": "Şimdi gerçek an...",
+    "question": "Peki... beni affediyor musun?",
+    "yes": ["Evet, affediyorum", "EVET!", "Evet! Evet! Evet!", "EVEEET!!!", "EVET (artık tıkla!)", "EVET LÜTFEN!", "YALVARIYORUM", "TIKLA BANAAA", "EVET!!! 🥺🥺🥺", "EVET!!!"],
+    "no": ["Hayır", "Emin misin?", "Gerçekten emin misin?", "Tekrar düşün!", "Son şans!", "Ciddi olamazsın!", "Pişman olabilirsin", "Bir daha düşün!", "Kalpsiz misin?!", "Acımasız!"],
+    "hint": "(Hayır butonu korkuyor... belki sadece Evet'e tıkla? 😅)",
+    "success": "SENİ SEVİYORUM!!!",
+    "successSub": "Daha iyi olacağıma söz veriyorum. Sen benim için her şeysin."
+  },
+  "music": {
+    "on": "🎵 Hüzünlü müzik çal",
+    "off": "🎵 Müziği durdur"
+  },
+  "footer": {
+    "madeWith": "%100 gerçek pişmanlık ve bir tutam çaresizlikle yapıldı",
+    "copyright": "© 2026 iamreallysorry.com — Tüm hakları suçluluk duygusu tarafından saklıdır"
+  },
+  "landing": {
+    "h1": "Özür Siteni Oluştur — Ücretsiz ve Komik",
+    "h2_1": "Online Özür Dilemenin En Yaratıcı Yolu",
+    "p1": "Sıkıcı mesajlar atmayı bırak. 3D animasyonlar, meme sesleri ve Hayır'a tıklamaya çalışınca gerçekten kaçan bir buton ile kişiselleştirilmiş, interaktif bir özür sayfası oluştur. Linki paylaş ve gülümsemelerini izle.",
+    "h2_2": "Nasıl Çalışır",
+    "steps": ["Adını gir", "Sihri izle", "Linki paylaş"],
+    "h2_3": "Neden iamreallysorry.com?",
+    "features": [
+      "3D atan kalp animasyonu",
+      "Kaçan Hayır butonu (hayır demek imkansız!)",
+      "Meme ses efektleri (hüzünlü keman, vine boom, korna)",
+      "100%'ü aşan pişmanlık ölçer",
+      "Affedilince konfeti patlaması",
+      "Mobil ve masaüstünde çalışır",
+      "Ücretsiz — kayıt gerektirmez"
+    ],
+    "h2_faq": "Sıkça Sorulan Sorular",
+    "faq": [
+      { "q": "Bu site ücretsiz mi?", "a": "Evet, tamamen ücretsiz. Kayıt yok, gizli ücret yok." },
+      { "q": "Özrü özelleştirebilir miyim?", "a": "Evet! Adını gir ve tüm sayfa kişiselleştirilsin." },
+      { "q": "Mobilde çalışıyor mu?", "a": "Kesinlikle. Kaçan buton için dokunmatik destekli, tamamen responsive." },
+      { "q": "Erkek/kız arkadaşım/arkadaşım için kullanabilir miyim?", "a": "Evet! Herkes için çalışır — sevgili, en yakın arkadaş, eş veya aile üyesi." },
+      { "q": "Nasıl paylaşırım?", "a": "Sadece linki gönder. İsim URL'ye gömülü olduğu için kişiselleştirilmiş deneyim sunar." }
+    ],
+    "cta": "Şimdi Özür Sayfanı Oluştur"
+  }
+}

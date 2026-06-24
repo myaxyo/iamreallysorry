@@ -4,48 +4,35 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import DramaticText from "@/components/DramaticText";
-import SorryMeter from "@/components/SorryMeter";
-import RunawayButton from "@/components/RunawayButton";
+import SorryMeterI18n from "@/components/SorryMeterI18n";
+import RunawayButtonI18n from "@/components/RunawayButtonI18n";
 import FloatingEmojis from "@/components/FloatingEmojis";
 import { useSounds } from "@/components/useSounds";
 
-// Dynamic import for Three.js (SSR breaks it)
 const Heart3D = dynamic(() => import("@/components/Heart3D"), { ssr: false });
 
-const apologyReasons = [
-  {
-    emoji: "🤡",
-    title: "Я был клоуном",
-    text: "Не смешным, а тем страшным, который портит детские праздники.",
-  },
-  {
-    emoji: "🧠",
-    title: "Мой мозг вышел из чата",
-    text: "Он ушёл в отпуск и забыл меня предупредить. Ноль мыслей, одни плохие вайбы.",
-  },
-  {
-    emoji: "🗑️",
-    title: "Я вёл себя как мусор",
-    text: "И даже не перерабатываемый. Прямиком-на-свалку поведение.",
-  },
-  {
-    emoji: "💀",
-    title: "Я знаю, что накосячил",
-    text: "Если бы моё извинение было фильмом — это был бы сериал из 12 сезонов. С режиссёрскими версиями.",
-  },
-];
+interface Dict {
+  hero: { subtitle: string; nameLabel: string; namePlaceholder: string; heading: string; subtext: string; scrollHint: string };
+  meter: { title: string; label: string; low: string; mid: string; high: string; error: string; footnote: string };
+  reasons: { title: string; items: { emoji: string; title: string; text: string }[] };
+  promises: { title: string; subtitle: string; items: string[] };
+  forgive: { title: string; question: string; yes: string[]; no: string[]; hint: string; success: string; successSub: string };
+  music: { on: string; off: string };
+  footer: { madeWith: string; copyright: string };
+  [key: string]: unknown;
+}
 
-const promises = [
-  "Я буду реально слушать, когда ты говоришь (а не просто кивать, думая о еде)",
-  "Я запомню все важные даты (ставлю 47 напоминалок прямо сейчас)",
-  "Я перестану делать то, что тебя бесит (ты знаешь, о чём я)",
-  "Я отдам тебе пульт от телевизора без боя (ну почти)",
-  "Я буду признавать свою неправоту быстрее (начинаю прямо сейчас: Я БЫЛ НЕПРАВ)",
-];
+interface Props {
+  dict: Dict;
+  name?: string;
+  lang: string;
+}
 
-export default function Home() {
+export default function ApologyExperience({ dict, name: initialName, lang }: Props) {
   const { playLoop, stop } = useSounds();
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [personName, setPersonName] = useState(initialName || "");
+  const [started, setStarted] = useState(!!initialName);
 
   const toggleMusic = () => {
     if (musicPlaying) {
@@ -55,6 +42,58 @@ export default function Home() {
     }
     setMusicPlaying(!musicPlaying);
   };
+
+  // Name entry screen
+  if (!started) {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white flex flex-col items-center justify-center px-4">
+        <motion.div
+          className="text-center max-w-md w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-6xl font-black mb-4">
+            <span className="bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
+              {dict.hero.heading}
+            </span>
+          </h1>
+          <p className="text-gray-400 mb-8 text-lg">{dict.hero.subtitle}</p>
+
+          <div className="space-y-4">
+            <input
+              type="text"
+              value={personName}
+              onChange={(e) => setPersonName(e.target.value)}
+              placeholder={dict.hero.namePlaceholder}
+              className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white text-center text-xl placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && personName.trim()) setStarted(true);
+              }}
+              autoFocus
+            />
+            <motion.button
+              className="w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              disabled={!personName.trim()}
+              onClick={() => {
+                if (personName.trim()) {
+                  // Update URL with name param for shareability
+                  const url = new URL(window.location.href);
+                  url.searchParams.set("name", personName.trim());
+                  window.history.replaceState({}, "", url.toString());
+                  setStarted(true);
+                }
+              }}
+            >
+              →
+            </motion.button>
+          </div>
+        </motion.div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
@@ -68,8 +107,39 @@ export default function Home() {
         transition={{ delay: 2 }}
         onClick={toggleMusic}
       >
-        {musicPlaying ? "🎵 Выкл. музыку" : "🎵 Вкл. грустную музыку"}
+        {musicPlaying ? dict.music.off : dict.music.on}
       </motion.button>
+
+      {/* Language switcher */}
+      <motion.div
+        className="fixed top-4 left-4 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <select
+          className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-full px-3 py-2 text-sm text-gray-300 cursor-pointer focus:outline-none focus:border-pink-500"
+          value={lang}
+          onChange={(e) => {
+            const newLang = e.target.value;
+            const url = new URL(window.location.href);
+            url.pathname = `/${newLang}`;
+            window.location.href = url.toString();
+          }}
+        >
+          <option value="en">🇬🇧 English</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="pt">🇧🇷 Português</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="hi">🇮🇳 हिंदी</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+      </motion.div>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
@@ -85,21 +155,23 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Официальное заявление для
+            {dict.hero.subtitle}
           </motion.p>
 
-          <motion.p
-            className="text-3xl md:text-5xl font-bold text-pink-300 mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            Гули 💕
-          </motion.p>
+          {personName && (
+            <motion.p
+              className="text-3xl md:text-5xl font-bold text-pink-300 mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              {personName} 💕
+            </motion.p>
+          )}
 
           <h1 className="text-5xl md:text-9xl font-black mb-2">
             <span className="bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
-              ПРОСТИ МЕНЯ
+              {dict.hero.heading}
             </span>
           </h1>
 
@@ -109,7 +181,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            Реально, по-настоящему, от всей души прости 🥺
+            {dict.hero.subtext} 🥺
           </motion.p>
         </motion.div>
 
@@ -120,17 +192,17 @@ export default function Home() {
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          <p className="text-gray-500 text-sm">↓ Листай вниз (мне есть что сказать) ↓</p>
+          <p className="text-gray-500 text-sm">↓ {dict.hero.scrollHint} ↓</p>
         </motion.div>
       </section>
 
       {/* Sorry Meter Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <DramaticText
-          text="Давай измерим мою вину"
+          text={dict.meter.title}
           className="text-2xl md:text-5xl font-bold text-white mb-12 md:mb-16"
         />
-        <SorryMeter />
+        <SorryMeterI18n dict={dict.meter} />
         <motion.p
           className="text-gray-400 mt-8 text-center max-w-md px-4"
           initial={{ opacity: 0 }}
@@ -138,21 +210,19 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ delay: 3 }}
         >
-          Учёные подтверждают: никто в истории не чувствовал себя настолько виноватым.
-          <br />
-          Шкала была к этому не готова.
+          {dict.meter.footnote}
         </motion.p>
       </section>
 
       {/* Reasons Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <DramaticText
-          text="Я знаю что натворил"
+          text={dict.reasons.title}
           className="text-2xl md:text-5xl font-bold text-white mb-12 md:mb-16"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl w-full">
-          {apologyReasons.map((reason, i) => (
+          {dict.reasons.items.map((reason, i) => (
             <motion.div
               key={i}
               className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-5 md:p-6 hover:border-pink-500/50 transition-colors"
@@ -175,7 +245,7 @@ export default function Home() {
       {/* Promises Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <DramaticText
-          text="Мои торжественные обещания"
+          text={dict.promises.title}
           className="text-2xl md:text-5xl font-bold text-white mb-4"
         />
         <motion.p
@@ -184,11 +254,11 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          (Мизинчиком клянусь, крест на сердце, вот это всё)
+          {dict.promises.subtitle}
         </motion.p>
 
         <div className="max-w-2xl w-full space-y-3 md:space-y-4">
-          {promises.map((promise, i) => (
+          {dict.promises.items.map((promise, i) => (
             <motion.div
               key={i}
               className="flex items-start gap-3 md:gap-4 bg-gray-800/30 border border-gray-700/50 rounded-xl p-3 md:p-4"
@@ -213,16 +283,16 @@ export default function Home() {
       {/* The Big Question */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <DramaticText
-          text="А теперь момент истины..."
+          text={dict.forgive.title}
           className="text-2xl md:text-5xl font-bold text-white mb-12 md:mb-16"
         />
-        <RunawayButton />
+        <RunawayButtonI18n dict={dict.forgive} name={personName} />
       </section>
 
       {/* Footer */}
       <footer className="text-center py-8 text-gray-600 text-xs md:text-sm px-4">
-        <p>Сделано из 100% чистого раскаяния и щепотки отчаяния</p>
-        <p className="mt-2">© 2026 iamreallysorry.com — Все права защищены чувством вины</p>
+        <p>{dict.footer.madeWith}</p>
+        <p className="mt-2">{dict.footer.copyright}</p>
       </footer>
     </main>
   );

@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Eu Sinto Muito — Crie um Site de Desculpas Engraçado de Graça",
+    "description": "Crie uma página de desculpas personalizada com animações 3D, sons de memes e um botão de Não que foge. O jeito mais engraçado de pedir desculpas para sua namorada, namorado ou amigo online.",
+    "keywords": "site de desculpas, pedir desculpas online, pagina de desculpas, site para pedir perdão, desculpas engraçadas, me desculpa site, gerador de desculpas online"
+  },
+  "hero": {
+    "subtitle": "Uma declaração formal de",
+    "nameLabel": "para",
+    "namePlaceholder": "Digite o nome da pessoa",
+    "heading": "ME DESCULPA",
+    "subtext": "Tipo... de verdade, profundamente, do fundo do coração",
+    "scrollHint": "Role para baixo (tenho muito a dizer)"
+  },
+  "meter": {
+    "title": "Deixa eu quantificar meu arrependimento",
+    "label": "O quanto eu sinto muito:",
+    "low": "Um pouco",
+    "mid": "Muito",
+    "high": "Extremamente",
+    "error": "ERRO: Nível de arrependimento excede a capacidade máxima",
+    "footnote": "Cientistas confirmam: ninguém na história sentiu tanta culpa assim. A escala não estava preparada."
+  },
+  "reasons": {
+    "title": "Eu sei o que eu fiz de errado",
+    "items": [
+      { "emoji": "🤡", "title": "Eu fui um palhaço", "text": "Não do tipo engraçado. Do tipo assustador que estraga festas de aniversário." },
+      { "emoji": "🧠", "title": "Meu cérebro saiu do chat", "text": "Foi de férias e esqueceu de me avisar. Zero pensamentos, só vibes (ruins)." },
+      { "emoji": "🗑️", "title": "Eu estava agindo como lixo", "text": "E nem lixo reciclável. Comportamento direto pro aterro." },
+      { "emoji": "💀", "title": "Eu sei que pisei na bola", "text": "Se minhas desculpas fossem um filme, seria uma série de 12 partes. Com versão do diretor." }
+    ]
+  },
+  "promises": {
+    "title": "Minhas promessas solenes",
+    "subtitle": "(Promessa de dedinho, juro por tudo, o pacote completo)",
+    "items": [
+      "Vou realmente ouvir quando você estiver falando (não só acenar pensando em comida)",
+      "Vou lembrar das datas importantes (colocando 47 alarmes agora mesmo)",
+      "Vou parar de fazer aquela coisa que te irrita (você sabe qual)",
+      "Vou te dar o controle remoto sem brigar (na maioria das vezes)",
+      "Vou admitir que estou errado(a) mais rápido (começando agora: EU ESTAVA ERRADO(A))"
+    ]
+  },
+  "forgive": {
+    "title": "Agora o momento da verdade...",
+    "question": "Então... você me perdoa?",
+    "yes": ["Sim, eu te perdoo", "SIM!", "Sim! Sim! Sim!", "SIIIIM!!!", "SIM (clica logo!)", "SIM POR FAVOR!", "EU IMPLORO", "CLICA AQUIII", "SIM!!! 🥺🥺🥺", "SIM!!!"],
+    "no": ["Não", "Tem certeza?", "Certeza mesmo?", "Pensa de novo!", "Última chance!", "Sério mesmo?", "Você pode se arrepender", "Pensa mais um pouquinho!", "Você é cruel?!", "Sem coração!"],
+    "hint": "(O botão de Não está ficando com medo... talvez só clica no Sim? 😅)",
+    "success": "EU TE AMO!!!",
+    "successSub": "Eu prometo ser melhor. Você significa tudo pra mim."
+  },
+  "music": {
+    "on": "🎵 Tocar música triste",
+    "off": "🎵 Parar música"
+  },
+  "footer": {
+    "madeWith": "Feito com 100% de arrependimento genuíno e uma pitada de desespero",
+    "copyright": "© 2026 iamreallysorry.com — Todos os direitos reservados pela culpa"
+  },
+  "landing": {
+    "h1": "Crie Seu Site de Desculpas — Grátis e Engraçado",
+    "h2_1": "O Jeito Mais Criativo de Pedir Desculpas Online",
+    "p1": "Pare de mandar mensagens de texto chatas. Crie uma página de desculpas personalizada e interativa com animações 3D, sons de memes e um botão que literalmente foge quando tentam clicar em Não. Compartilhe o link e veja a pessoa sorrir.",
+    "h2_2": "Como Funciona",
+    "steps": ["Digite o nome da pessoa", "Veja a mágica acontecer", "Compartilhe o link"],
+    "h2_3": "Por que iamreallysorry.com?",
+    "features": [
+      "Animação 3D de coração batendo",
+      "Botão de Não fujão (não dá pra dizer não!)",
+      "Efeitos sonoros de memes (violino triste, vine boom, buzina)",
+      "Medidor de arrependimento que passa de 100%",
+      "Explosão de confete ao ser perdoado",
+      "Funciona no celular e no computador",
+      "Grátis — sem cadastro"
+    ],
+    "h2_faq": "Perguntas Frequentes",
+    "faq": [
+      { "q": "Este site é grátis?", "a": "Sim, completamente grátis. Sem cadastro, sem taxas escondidas." },
+      { "q": "Posso personalizar o pedido de desculpas?", "a": "Sim! Digite o nome da pessoa e a página inteira será personalizada." },
+      { "q": "Funciona no celular?", "a": "Com certeza. Totalmente responsivo com suporte touch para o botão fujão." },
+      { "q": "Posso usar para meu namorado/namorada/amigo?", "a": "Sim! Funciona para qualquer pessoa — namorada, namorado, melhor amigo, cônjuge ou familiar." },
+      { "q": "Como eu compartilho?", "a": "Basta enviar o link. O nome fica embutido na URL para uma experiência personalizada." }
+    ],
+    "cta": "Crie Suas Desculpas Agora"
+  }
+}

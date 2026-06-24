@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Lo Siento Mucho — Crea una Página de Disculpas Divertida Gratis",
+    "description": "Crea una página de disculpas personalizada con animaciones 3D, sonidos meme y un botón No que huye. La forma más divertida de pedir perdón a tu novia, novio o amigo.",
+    "keywords": "pagina de disculpas, pedir perdon online, pagina para pedir perdon, disculpas graciosas, lo siento website, pedir disculpas a mi novia"
+  },
+  "hero": {
+    "subtitle": "Una declaración formal para",
+    "nameLabel": "para",
+    "namePlaceholder": "Escribe su nombre",
+    "heading": "LO SIENTO",
+    "subtext": "De verdad, profundamente, con toda mi alma",
+    "scrollHint": "Desplázate (tengo mucho que decir)"
+  },
+  "meter": {
+    "title": "Cuantifiquemos mi arrepentimiento",
+    "label": "Cuánto lo siento:",
+    "low": "Un poco",
+    "mid": "Mucho",
+    "high": "Infinitamente",
+    "error": "ERROR: Nivel de arrepentimiento supera la capacidad máxima",
+    "footnote": "Los científicos confirman: nadie en la historia se ha sentido tan arrepentido. La escala no estaba preparada."
+  },
+  "reasons": {
+    "title": "Sé lo que hice mal",
+    "items": [
+      { "emoji": "🤡", "title": "Fui un payaso", "text": "No del tipo gracioso. Del tipo aterrador que arruina fiestas de cumpleaños." },
+      { "emoji": "🧠", "title": "Mi cerebro se fue de vacaciones", "text": "Se fue sin avisarme. Cero pensamientos, solo malas vibras." },
+      { "emoji": "🗑️", "title": "Me comporté como basura", "text": "Y ni siquiera reciclable. Comportamiento directo-al-vertedero." },
+      { "emoji": "💀", "title": "Sé que la cagué", "text": "Si mi disculpa fuera una película, sería una serie de 12 temporadas." }
+    ]
+  },
+  "promises": {
+    "title": "Mis promesas solemnes",
+    "subtitle": "(Lo juro por el meñique, cruz en el corazón, todo eso)",
+    "items": [
+      "Voy a escuchar de verdad cuando hables (no solo asentir pensando en comida)",
+      "Recordaré las fechas importantes (estoy poniendo 47 recordatorios ahora mismo)",
+      "Dejaré de hacer eso que te molesta (tú sabes cuál)",
+      "Te daré el control remoto sin pelear (la mayoría de las veces)",
+      "Admitiré que estoy equivocado más rápido (empiezo ahora: ESTABA EQUIVOCADO)"
+    ]
+  },
+  "forgive": {
+    "title": "Ahora el momento de la verdad...",
+    "question": "Entonces... ¿me perdonas?",
+    "yes": ["Sí, te perdono", "¡SÍ!", "¡Sí! ¡Sí! ¡Sí!", "¡¡¡SÍÍÍÍ!!!", "SÍ (¡haz clic ya!)", "¡SÍ POR FAVOR!", "TE LO SUPLICO", "¡HAZME CLIC!", "¡¡¡SÍ!!! 🥺🥺🥺", "¡¡¡SÍÍÍÍ!!!"],
+    "no": ["No", "¿Segura?", "¿De verdad?", "¡Piénsalo!", "¡Última oportunidad!", "¡¿En serio?!", "Te vas a arrepentir", "¡Por favooor!", "¡Eres cruel!", "¡Sin corazón!"],
+    "hint": "(El botón No ya tiene miedo... ¿tal vez solo haz clic en Sí? 😅)",
+    "success": "¡¡¡TE AMO!!!",
+    "successSub": "Prometo ser mejor. Significas todo para mí."
+  },
+  "music": {
+    "on": "🎵 Música triste",
+    "off": "🎵 Parar música"
+  },
+  "footer": {
+    "madeWith": "Hecho con 100% de arrepentimiento genuino y una pizca de desesperación",
+    "copyright": "© 2026 iamreallysorry.com — Todos los derechos reservados por la culpa"
+  },
+  "landing": {
+    "h1": "Crea tu Página de Disculpas — Gratis y Divertida",
+    "h2_1": "La Forma Más Creativa de Pedir Perdón Online",
+    "p1": "Deja de enviar mensajes aburridos. Crea una página interactiva personalizada con animaciones 3D, sonidos meme y un botón que literalmente huye cuando intentan decir No. Comparte el enlace y mira cómo sonríen.",
+    "h2_2": "Cómo Funciona",
+    "steps": ["Escribe su nombre", "Mira la magia", "Comparte el enlace"],
+    "h2_3": "¿Por qué iamreallysorry.com?",
+    "features": [
+      "Corazón 3D animado que late",
+      "Botón No que huye (¡no pueden decir no!)",
+      "Sonidos meme (violín triste, vine boom, airhorn)",
+      "Medidor de disculpas que supera el 100%",
+      "Explosión de confeti al perdonar",
+      "Funciona en móvil y escritorio",
+      "Gratis — sin registro"
+    ],
+    "h2_faq": "Preguntas Frecuentes",
+    "faq": [
+      { "q": "¿Es gratis?", "a": "Sí, completamente gratis. Sin registro ni costos ocultos." },
+      { "q": "¿Puedo personalizar la disculpa?", "a": "¡Sí! Escribe su nombre y toda la página será personalizada." },
+      { "q": "¿Funciona en el móvil?", "a": "Por supuesto. Diseño totalmente responsivo con soporte táctil." },
+      { "q": "¿Sirve para novio/novia/amigo?", "a": "¡Sí! Funciona para todos — novia, novio, amigo, esposa o familiar." },
+      { "q": "¿Cómo lo comparto?", "a": "Solo envía el enlace. El nombre está integrado en la URL." }
+    ],
+    "cta": "Crear mi Disculpa"
+  }
+}

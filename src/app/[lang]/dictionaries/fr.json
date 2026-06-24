@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Je Suis Vraiment Désolé — Créez un Site d'Excuses Drôle et Gratuit",
+    "description": "Créez une page d'excuses personnalisée avec des animations 3D, des sons de mèmes et un bouton Non qui s'enfuit. La façon la plus drôle de demander pardon à votre copine, copain ou ami en ligne.",
+    "keywords": "site pour s'excuser, demander pardon en ligne, page d'excuses, site d'excuses drôle, je suis désolé site, excuses en ligne, générateur d'excuses"
+  },
+  "hero": {
+    "subtitle": "Une déclaration officielle de",
+    "nameLabel": "pour",
+    "namePlaceholder": "Entrez son prénom",
+    "heading": "JE SUIS DÉSOLÉ",
+    "subtext": "Genre... vraiment, sincèrement, profondément désolé",
+    "scrollHint": "Défilez vers le bas (j'ai beaucoup à dire)"
+  },
+  "meter": {
+    "title": "Laissez-moi quantifier mes remords",
+    "label": "À quel point je suis désolé :",
+    "low": "Un peu",
+    "mid": "Très",
+    "high": "Extrêmement",
+    "error": "ERREUR : Niveau de remords dépasse la capacité maximale",
+    "footnote": "Les scientifiques confirment : personne dans l'histoire n'a jamais été aussi désolé. L'échelle n'était pas prête."
+  },
+  "reasons": {
+    "title": "Je sais ce que j'ai fait de mal",
+    "items": [
+      { "emoji": "🤡", "title": "J'ai été un clown", "text": "Pas le genre drôle. Le genre flippant qui ruine les fêtes d'anniversaire." },
+      { "emoji": "🧠", "title": "Mon cerveau a quitté la conversation", "text": "Il est parti en vacances sans me prévenir. Zéro réflexion, que des mauvaises vibes." },
+      { "emoji": "🗑️", "title": "Je me suis comporté comme une poubelle", "text": "Et même pas une poubelle recyclable. Comportement direction la décharge." },
+      { "emoji": "💀", "title": "Je sais que j'ai merdé", "text": "Si mes excuses étaient un film, ce serait une série en 12 épisodes. Avec les versions longues." }
+    ]
+  },
+  "promises": {
+    "title": "Mes promesses solennelles",
+    "subtitle": "(Promis juré craché, croix de bois croix de fer)",
+    "items": [
+      "Je vais vraiment écouter quand tu parles (pas juste hocher la tête en pensant à la bouffe)",
+      "Je vais me souvenir des dates importantes (je mets 47 rappels en ce moment même)",
+      "Je vais arrêter de faire ce truc qui t'énerve (tu sais duquel je parle)",
+      "Je te laisserai la télécommande sans me battre (la plupart du temps)",
+      "J'admettrai mes torts plus vite (en commençant maintenant : J'AVAIS TORT)"
+    ]
+  },
+  "forgive": {
+    "title": "Maintenant le moment de vérité...",
+    "question": "Alors... tu me pardonnes ?",
+    "yes": ["Oui, je te pardonne", "OUI !", "Oui ! Oui ! Oui !", "OUIIII !!!", "OUI (clique déjà !)", "OUI S'IL TE PLAÎT !", "JE T'EN SUPPLIE", "CLIQUE ICIII", "OUI !!! 🥺🥺🥺", "OUI !!!"],
+    "no": ["Non", "T'es sûr(e) ?", "Vraiment sûr(e) ?", "Réfléchis encore !", "Dernière chance !", "Sûrement pas !", "Tu pourrais regretter", "Repenses-y !", "T'es cruel(le) ?!", "Sans cœur !"],
+    "hint": "(Le bouton Non commence à avoir peur... peut-être juste cliquer Oui ? 😅)",
+    "success": "JE T'AIME !!!",
+    "successSub": "Je promets de m'améliorer. Tu comptes plus que tout pour moi."
+  },
+  "music": {
+    "on": "🎵 Jouer musique triste",
+    "off": "🎵 Arrêter la musique"
+  },
+  "footer": {
+    "madeWith": "Fait avec 100% de remords sincères et une pincée de désespoir",
+    "copyright": "© 2026 iamreallysorry.com — Tous droits réservés par la culpabilité"
+  },
+  "landing": {
+    "h1": "Créez Votre Site d'Excuses — Gratuit et Drôle",
+    "h2_1": "La Façon la Plus Créative de S'excuser en Ligne",
+    "p1": "Arrêtez d'envoyer des messages ennuyeux. Créez une page d'excuses personnalisée et interactive avec des animations 3D, des sons de mèmes et un bouton qui s'enfuit littéralement quand on essaie de dire Non. Partagez le lien et regardez-les sourire.",
+    "h2_2": "Comment Ça Marche",
+    "steps": ["Entrez son prénom", "Regardez la magie opérer", "Partagez le lien"],
+    "h2_3": "Pourquoi iamreallysorry.com ?",
+    "features": [
+      "Animation 3D de cœur qui bat",
+      "Bouton Non qui s'enfuit (impossible de dire non !)",
+      "Effets sonores de mèmes (violon triste, vine boom, klaxon)",
+      "Jauge de remords qui dépasse les 100%",
+      "Explosion de confettis au pardon",
+      "Fonctionne sur mobile et ordinateur",
+      "Gratuit — aucune inscription requise"
+    ],
+    "h2_faq": "Questions Fréquentes",
+    "faq": [
+      { "q": "Ce site est-il gratuit ?", "a": "Oui, complètement gratuit. Pas d'inscription, pas de frais cachés." },
+      { "q": "Puis-je personnaliser les excuses ?", "a": "Oui ! Entrez son prénom et toute la page sera personnalisée." },
+      { "q": "Ça fonctionne sur mobile ?", "a": "Absolument. Entièrement responsive avec support tactile pour le bouton fugueur." },
+      { "q": "Puis-je l'utiliser pour mon copain/ma copine/mon ami(e) ?", "a": "Oui ! Ça marche pour tout le monde — copine, copain, meilleur(e) ami(e), conjoint(e) ou famille." },
+      { "q": "Comment je le partage ?", "a": "Envoyez simplement le lien. Le prénom est intégré dans l'URL pour une expérience personnalisée." }
+    ],
+    "cta": "Créez Vos Excuses Maintenant"
+  }
+}
