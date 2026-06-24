@@ -132,6 +132,25 @@ export default function LandingContent({ dict, lang }: Props) {
             {landing.cta} →
           </a>
         </div>
+
+        {/* Blog link for SEO internal linking */}
+        {(lang === "en" || lang === "ru") && (
+          <div className="mt-12 text-center border-t border-gray-800 pt-8">
+            <p className="text-gray-400 mb-3">
+              {lang === "en"
+                ? "Want more tips on how to apologize?"
+                : "Хочешь больше советов как извиниться?"}
+            </p>
+            <a
+              href={`/${lang}/blog`}
+              className="text-pink-400 underline hover:text-pink-300 text-lg"
+            >
+              {lang === "en"
+                ? "Read our relationship & apology advice →"
+                : "Читай наши советы по отношениям и извинениям →"}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
