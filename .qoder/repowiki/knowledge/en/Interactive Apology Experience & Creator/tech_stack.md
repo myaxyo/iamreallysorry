@@ -1,0 +1,3 @@
+- **3D & Animation**: Uses `@react-three/fiber` and `three` for 3D heart rendering, and `framer-motion` for complex UI transitions and interactive elements like the 'runaway' button.
+- **Audio**: Custom hook `useSounds` manages meme sound effects (e.g., sad violin, vine boom) stored in `public/sounds/`.
+- **Styling**: Tailwind CSS v4 for utility-first styling.

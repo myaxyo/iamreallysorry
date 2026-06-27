@@ -1,0 +1,4 @@
+- **Framework**: Built on Next.js 16 (App Router) with React 19 and TypeScript.
+- **Internationalization**: Implements a custom locale-based routing system using a `src/proxy.ts` middleware for automatic language detection and redirection to `[lang]` dynamic routes. Localization data is managed via server-side JSON dictionaries in `src/app/[lang]/dictionaries/`.
+- **Rendering Strategy**: Utilizes Server Components for layout, metadata generation, and initial page rendering, while delegating complex interactive UI (animations, sound, state management) to Client Components marked with `'use client'`.
+- **Component Structure**: Separates the 'Creator Flow' (form-based apology generation) from the 'Apology Experience' (the recipient's view), orchestrated by query parameters in the main page route.

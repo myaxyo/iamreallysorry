@@ -1,0 +1,3 @@
+- Client-side interactive components are explicitly marked with the 'use client' directive at the top of the file.
+- Localization strings are accessed via typed dictionary objects passed as props from server-side parent components.
+- Interactive UI elements consistently use framer-motion's `whileHover` and `whileTap` props for tactile feedback.

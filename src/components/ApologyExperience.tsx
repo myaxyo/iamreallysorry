@@ -9,7 +9,14 @@ import RunawayButtonI18n from "@/components/RunawayButtonI18n";
 import FloatingEmojis from "@/components/FloatingEmojis";
 import { useSounds } from "@/components/useSounds";
 
-const Heart3D = dynamic(() => import("@/components/Heart3D"), { ssr: false });
+const Heart3D = dynamic(() => import("@/components/Heart3D"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[300px] md:h-[500px] flex items-center justify-center">
+      <div className="text-6xl animate-pulse">❤️</div>
+    </div>
+  ),
+});
 
 interface Dict {
   hero: { subtitle: string; nameLabel: string; namePlaceholder: string; heading: string; subtext: string; scrollHint: string };

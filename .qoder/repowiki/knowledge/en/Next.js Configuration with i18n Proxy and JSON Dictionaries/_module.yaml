@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: configuration_system
+title: Next.js Configuration with i18n Proxy and JSON Dictionaries
+scope: []
+source_files:
+    - next.config.ts
+    - tsconfig.json
+    - src/proxy.ts
+    - src/app/[lang]/dictionaries.ts
+    - src/app/[lang]/dictionaries/en.json
+    - eslint.config.mjs
+    - postcss.config.mjs
+    - .gitignore
+    - package.json
+depends_on: []
+related_to: []

@@ -1,0 +1,13 @@
+schema_version: 1
+module_path: error_handling
+title: Minimal Error Handling via Next.js Navigation Helpers
+scope: []
+source_files:
+    - src/app/[lang]/layout.tsx
+    - src/app/[lang]/page.tsx
+    - src/app/[lang]/blog/[slug]/page.tsx
+    - src/app/[lang]/blog/page.tsx
+    - src/proxy.ts
+    - src/components/useSounds.ts
+depends_on: []
+related_to: []

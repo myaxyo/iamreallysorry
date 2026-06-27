@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 
 function HeartMesh() {
@@ -85,9 +85,20 @@ function FloatingParticles() {
 }
 
 export default function Heart3D() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <div className="w-full h-[300px] md:h-[500px]">
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }} frameloop="always">
+      <Canvas
+        camera={{ position: [0, 0, 4], fov: 50 }}
+        frameloop="always"
+        dpr={isMobile ? 1 : [1, 1.5]}
+        performance={{ min: 0.5 }}
+      >
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#ff6b9d" />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff1744" />
@@ -99,7 +110,7 @@ export default function Heart3D() {
           color="#ffffff"
         />
         <HeartMesh />
-        <FloatingParticles />
+        {!isMobile && <FloatingParticles />}
       </Canvas>
     </div>
   );

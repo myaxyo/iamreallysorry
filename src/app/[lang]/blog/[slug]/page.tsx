@@ -3,6 +3,7 @@ import { hasLocale, type Locale } from "../../dictionaries";
 import { getBlogPost, getBlogPosts } from "../posts";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateStaticParams({
   params,
@@ -83,17 +84,44 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <article className="max-w-3xl mx-auto">
-        <Link
-          href={`/${lang}/blog`}
-          className="text-gray-500 hover:text-pink-400 text-sm mb-8 inline-block"
-        >
-          ← {lang === "en" ? "Back to all articles" : "Назад ко всем статьям"}
-        </Link>
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: `/${lang}` },
+            { label: "Blog", href: `/${lang}/blog` },
+            { label: post.title },
+          ]}
+        />
 
         <div
-          className="prose prose-invert max-w-none"
+          className="prose prose-invert max-w-none mt-6"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
+
+        {/* Related Articles */}
+        {(() => {
+          const allPosts = getBlogPosts(lang as Locale);
+          const related = allPosts.filter((p) => p.slug !== slug).slice(0, 3);
+          if (related.length === 0) return null;
+          return (
+            <div className="mt-16 border-t border-gray-800 pt-8">
+              <h3 className="text-xl font-bold text-white mb-4">
+                {lang === "en" ? "Related Articles" : "Похожие статьи"}
+              </h3>
+              <div className="grid gap-4">
+                {related.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    href={`/${lang}/blog/${rp.slug}`}
+                    className="block bg-gray-800/30 border border-gray-700/50 rounded-xl p-4 hover:border-pink-500/50 transition-colors"
+                  >
+                    <span className="text-lg mr-2">{rp.emoji}</span>
+                    <span className="text-white font-medium">{rp.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
 
         <div className="mt-16 p-6 bg-gray-800/50 border border-pink-500/30 rounded-2xl text-center">
           <p className="text-xl font-bold text-white mb-2">

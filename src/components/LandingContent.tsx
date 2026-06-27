@@ -19,6 +19,22 @@ interface Props {
   lang: string;
 }
 
+const SEO_LINKS = [
+  { slug: "apology-to-girlfriend", label: "Apology to Girlfriend" },
+  { slug: "apology-to-boyfriend", label: "Apology to Boyfriend" },
+  { slug: "apology-to-friend", label: "Apology to Friend" },
+  { slug: "apology-to-wife", label: "Apology to Wife" },
+  { slug: "apology-to-husband", label: "Apology to Husband" },
+  { slug: "apology-to-mom", label: "Apology to Mom" },
+  { slug: "apology-to-family", label: "Apology to Family" },
+  { slug: "apology-to-coworker", label: "Apology to Coworker" },
+  { slug: "sorry-for-forgetting", label: "Sorry for Forgetting" },
+  { slug: "sorry-for-argument", label: "Sorry After an Argument" },
+  { slug: "sorry-for-being-distant", label: "Sorry for Being Distant" },
+  { slug: "sorry-for-lying", label: "Sorry for Lying" },
+  { slug: "sorry-for-being-rude", label: "Sorry for Being Rude" },
+];
+
 export default function LandingContent({ dict, lang }: Props) {
   const landing = dict.landing;
 
@@ -131,6 +147,24 @@ export default function LandingContent({ dict, lang }: Props) {
           >
             {landing.cta} →
           </a>
+        </div>
+
+        {/* Internal SEO Links */}
+        <div className="mt-16 border-t border-gray-800 pt-8">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+            {lang === "en" ? "Apologize to Anyone" : "Извинись перед кем угодно"}
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {SEO_LINKS.map((link) => (
+              <a
+                key={link.slug}
+                href={`/${lang}/${link.slug}`}
+                className="text-sm bg-gray-800/50 border border-gray-700 text-gray-300 px-3 py-2 rounded-lg hover:border-pink-500/50 hover:text-pink-400 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Blog link for SEO internal linking */}

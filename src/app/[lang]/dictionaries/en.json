@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "I Am Really Sorry — Create a Funny Apology Website for Free",
-    "description": "Make a personalized apology page with 3D animations, meme sounds, and a runaway No button. The funniest way to say sorry to your girlfriend, boyfriend, or friend online.",
-    "keywords": "apology website, sorry page for girlfriend, make apology website, funny sorry page, i am sorry website, apology to boyfriend, online apology generator"
+    "description": "Make a personalized apology page with 3D animations, meme sounds, and a runaway No button. The funniest way to say sorry to anyone — girlfriend, boyfriend, friend, family, or coworker.",
+    "keywords": "apology website, sorry page generator, funny apology online, i am sorry website, apology to girlfriend, apology to friend, apology to family, sorry page maker free, interactive apology, runaway no button"
   },
   "hero": {
     "subtitle": "A formal declaration of",
@@ -24,10 +24,26 @@
   "reasons": {
     "title": "I know what I did wrong",
     "items": [
-      { "emoji": "🤡", "title": "I was a clown", "text": "Not the funny kind. The scary kind that ruins birthday parties." },
-      { "emoji": "🧠", "title": "My brain left the chat", "text": "It went on vacation and forgot to tell me. Zero thoughts, just vibes (bad ones)." },
-      { "emoji": "🗑️", "title": "I was acting like trash", "text": "And not even recyclable trash. Straight-to-landfill behavior." },
-      { "emoji": "💀", "title": "I know I messed up", "text": "If my apology were a movie, it'd be a 12-part series. With director's cuts." }
+      {
+        "emoji": "🤡",
+        "title": "I was a clown",
+        "text": "Not the funny kind. The scary kind that ruins birthday parties."
+      },
+      {
+        "emoji": "🧠",
+        "title": "My brain left the chat",
+        "text": "It went on vacation and forgot to tell me. Zero thoughts, just vibes (bad ones)."
+      },
+      {
+        "emoji": "🗑️",
+        "title": "I was acting like trash",
+        "text": "And not even recyclable trash. Straight-to-landfill behavior."
+      },
+      {
+        "emoji": "💀",
+        "title": "I know I messed up",
+        "text": "If my apology were a movie, it'd be a 12-part series. With director's cuts."
+      }
     ]
   },
   "promises": {
@@ -44,8 +60,30 @@
   "forgive": {
     "title": "Now the moment of truth...",
     "question": "So... do you forgive me?",
-    "yes": ["Yes, I forgive you", "YES!", "Yes! Yes! Yes!", "YESSSSS!!!", "YES (click me already!)", "YES PLEASE!", "I'M BEGGING YOU", "CLICK MEEEEE", "YES!!! 🥺🥺🥺", "YES!!!"],
-    "no": ["No", "Are you sure?", "Really sure?", "Think again!", "Last chance!", "Surely not!", "You might regret this", "Give it another thought!", "Are you cruel?!", "Heartless!"],
+    "yes": [
+      "Yes, I forgive you",
+      "YES!",
+      "Yes! Yes! Yes!",
+      "YESSSSS!!!",
+      "YES (click me already!)",
+      "YES PLEASE!",
+      "I'M BEGGING YOU",
+      "CLICK MEEEEE",
+      "YES!!! 🥺🥺🥺",
+      "YES!!!"
+    ],
+    "no": [
+      "No",
+      "Are you sure?",
+      "Really sure?",
+      "Think again!",
+      "Last chance!",
+      "Surely not!",
+      "You might regret this",
+      "Give it another thought!",
+      "Are you cruel?!",
+      "Heartless!"
+    ],
     "hint": "(The No button is getting scared... maybe just click Yes? 😅)",
     "success": "I LOVE YOU!!!",
     "successSub": "I promise to be better. You mean everything to me."
@@ -59,28 +97,53 @@
     "copyright": "© 2026 iamreallysorry.com — All rights reserved by guilt"
   },
   "landing": {
-    "h1": "Create Your Apology Website — Free & Funny",
-    "h2_1": "The Most Creative Way to Say Sorry Online",
-    "p1": "Stop sending boring text messages. Create a personalized, interactive apology page with 3D animations, meme sounds, and a button that literally runs away when they try to say No. Share it via link and watch them smile.",
+    "h1": "Create a Personalized Apology Website — Free & Instant",
+    "h2_1": "The Most Creative Way to Say Sorry to Anyone",
+    "p1": "Stop sending boring text messages that get left on read. Create a personalized, interactive apology page with 3D animations, meme sounds, and a No button that literally runs away. Works for anyone — your partner, friend, family member, or coworker. Share the link and watch them go from angry to smiling.",
     "h2_2": "How It Works",
-    "steps": ["Enter their name", "Watch the magic happen", "Share the link"],
+    "steps": [
+      "Enter their name",
+      "Watch the magic happen",
+      "Share the link — they can't say no"
+    ],
     "h2_3": "Why iamreallysorry.com?",
     "features": [
       "3D beating heart animation",
-      "Runaway No button (they can't say no!)",
+      "Runaway No button (they literally can't say no!)",
       "Meme sound effects (sad violin, vine boom, airhorn)",
-      "Sorry meter that breaks past 100%",
-      "Confetti explosion on forgiveness",
+      "Sorry meter that dramatically breaks past 100%",
+      "Confetti explosion when they forgive you",
+      "Works for any relationship — partner, friend, family, coworker",
+      "Available in 11 languages",
       "Works on mobile and desktop",
       "Free — no signup required"
     ],
     "h2_faq": "Frequently Asked Questions",
     "faq": [
-      { "q": "Is this website free?", "a": "Yes, completely free. No signup, no hidden fees." },
-      { "q": "Can I customize the apology?", "a": "Yes! Enter their name and the entire page is personalized for them." },
-      { "q": "Does it work on mobile?", "a": "Absolutely. Fully responsive with touch support for the runaway button." },
-      { "q": "Can I use this for my boyfriend/girlfriend/friend?", "a": "Yes! It works for anyone — girlfriend, boyfriend, best friend, spouse, or family member." },
-      { "q": "How do I share it?", "a": "Just send the link. The name is embedded in the URL so they get a personalized experience." }
+      {
+        "q": "Is this website free?",
+        "a": "Yes, completely free. No signup, no hidden fees, no limits on how many apology pages you create."
+      },
+      {
+        "q": "Who can I apologize to?",
+        "a": "Anyone! Girlfriend, boyfriend, wife, husband, friend, family member, coworker — the page works for any relationship."
+      },
+      {
+        "q": "Can I customize the apology?",
+        "a": "Yes! Enter their name and choose the language. The entire page is personalized for them."
+      },
+      {
+        "q": "Does it work on mobile?",
+        "a": "Absolutely. Fully responsive with touch support for the runaway No button."
+      },
+      {
+        "q": "How do I share it?",
+        "a": "Just copy and send the link via text, WhatsApp, DM, or email. The name is embedded in the URL so they get a personalized experience."
+      },
+      {
+        "q": "What languages are supported?",
+        "a": "English, Spanish, Portuguese, French, German, Russian, Turkish, Arabic, Hindi, Japanese, and Korean."
+      }
     ],
     "cta": "Create Your Apology Now"
   }

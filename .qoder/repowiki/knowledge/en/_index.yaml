@@ -1,0 +1,103 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: main
+nodes_managed: true
+exported_at: "2026-06-27T13:52:58Z"
+modules:
+    "":
+        dir_name: Interactive Apology Experience & Creator
+        title: Interactive Apology Experience & Creator
+        scope:
+            - .gitignore
+            - AGENTS.md
+            - CLAUDE.md
+            - README.md
+            - eslint.config.mjs
+            - next.config.ts
+            - package-lock.json
+            - package.json
+            - postcss.config.mjs
+            - tsconfig.json
+            - src/
+            - public/
+            - next-env.d.ts
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    build_system:
+        dir_name: Next.js Build & Deployment System
+        title: Next.js Build & Deployment System
+        scope: []
+        source_files:
+            - package.json
+            - next.config.ts
+            - tsconfig.json
+            - eslint.config.mjs
+            - postcss.config.mjs
+            - README.md
+        children: []
+        depends_on: []
+        related_to: []
+    configuration_system:
+        dir_name: Next.js Configuration with i18n Proxy and JSON Dictionaries
+        title: Next.js Configuration with i18n Proxy and JSON Dictionaries
+        scope: []
+        source_files:
+            - next.config.ts
+            - tsconfig.json
+            - src/proxy.ts
+            - src/app/[lang]/dictionaries.ts
+            - src/app/[lang]/dictionaries/en.json
+            - eslint.config.mjs
+            - postcss.config.mjs
+            - .gitignore
+            - package.json
+        children: []
+        depends_on: []
+        related_to: []
+    dependency_management:
+        dir_name: npm with package-lock.json for Dependency Management
+        title: npm with package-lock.json for Dependency Management
+        scope: []
+        source_files:
+            - package.json
+            - package-lock.json
+            - .gitignore
+            - tsconfig.json
+            - next.config.ts
+            - eslint.config.mjs
+            - postcss.config.mjs
+        children: []
+        depends_on: []
+        related_to: []
+    error_handling:
+        dir_name: Minimal Error Handling via Next.js Navigation Helpers
+        title: Minimal Error Handling via Next.js Navigation Helpers
+        scope: []
+        source_files:
+            - src/app/[lang]/layout.tsx
+            - src/app/[lang]/page.tsx
+            - src/app/[lang]/blog/[slug]/page.tsx
+            - src/app/[lang]/blog/page.tsx
+            - src/proxy.ts
+            - src/components/useSounds.ts
+        children: []
+        depends_on: []
+        related_to: []
+    frontend_style:
+        dir_name: Tailwind CSS v4 Utility-First Styling System
+        title: Tailwind CSS v4 Utility-First Styling System
+        scope: []
+        source_files:
+            - src/app/globals.css
+            - postcss.config.mjs
+            - package.json
+            - src/components/ApologyExperience.tsx
+            - src/components/DramaticText.tsx
+            - src/components/RunawayButtonI18n.tsx
+            - src/app/[lang]/layout.tsx
+        children: []
+        depends_on: []
+        related_to: []

@@ -1,0 +1,20 @@
+schema_version: 1
+module_path: ""
+title: Interactive Apology Experience & Creator
+scope:
+    - .gitignore
+    - AGENTS.md
+    - CLAUDE.md
+    - README.md
+    - eslint.config.mjs
+    - next.config.ts
+    - package-lock.json
+    - package.json
+    - postcss.config.mjs
+    - tsconfig.json
+    - src/
+    - public/
+    - next-env.d.ts
+source_files: []
+depends_on: []
+related_to: []
