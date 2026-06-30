@@ -26,14 +26,23 @@ export async function generateMetadata({
   const post = getBlogPost(lang as Locale, slug);
   if (!post) return {};
 
+  const baseUrl = "https://iamreallysorry.com";
+  // RU posts live under /ru; all other locales serve the English set, so
+  // consolidate those onto the English URL.
+  const canonicalLang = lang === "ru" ? "ru" : "en";
+  const canonicalUrl = `${baseUrl}/${canonicalLang}/blog/${slug}`;
+
   return {
     title: post.metaTitle,
     description: post.metaDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       type: "article",
-      url: `https://iamreallysorry.com/${lang}/blog/${slug}`,
+      url: canonicalUrl,
     },
   };
 }

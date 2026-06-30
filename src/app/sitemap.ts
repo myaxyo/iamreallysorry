@@ -1,87 +1,58 @@
 import type { MetadataRoute } from "next";
+import { seoPageSlugs } from "./[lang]/[slug]/seoPages";
+import { getBlogPosts } from "./[lang]/blog/posts";
 
 const locales = ["en", "ru", "es", "pt", "fr", "de", "tr", "ar", "hi", "ja", "ko"];
 const baseUrl = "https://iamreallysorry.com";
 
-// Blog slugs per locale (only locales with blog content)
-const blogSlugs: Record<string, string[]> = {
-  en: [
-    "how-to-apologize-to-your-girlfriend",
-    "sorry-message-for-boyfriend-after-fight",
-    "couple-fight-makeup-ideas-viral",
-    "how-to-say-sorry-without-saying-sorry",
-    "apology-to-best-friend-after-betrayal",
-    "how-to-apologize-at-work-professionally",
-    "long-distance-apology-ideas",
-  ],
-  ru: [
-    "kak-poprosit-proshcheniya-u-devushki",
-    "virusnye-sposoby-pomiritsya-posle-ssory",
-  ],
+// hreflang alternates for the genuinely-localized home pages.
+const homeLanguageAlternates: Record<string, string> = {
+  ...Object.fromEntries(locales.map((l) => [l, `${baseUrl}/${l}`])),
+  "x-default": `${baseUrl}/en`,
 };
 
-// Programmatic SEO page slugs
-const seoSlugs = [
-  "apology-to-girlfriend",
-  "apology-to-boyfriend",
-  "apology-to-friend",
-  "apology-to-partner",
-  "apology-to-wife",
-  "apology-to-husband",
-  "apology-to-mom",
-  "apology-to-family",
-  "apology-to-coworker",
-  "sorry-for-forgetting",
-  "sorry-for-argument",
-  "sorry-for-being-distant",
-  "sorry-for-lying",
-  "sorry-for-being-rude",
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   const routes: MetadataRoute.Sitemap = [];
 
-  // Main pages for each locale
+  // 1. Localized home pages — one entry per locale (real translations exist).
   for (const locale of locales) {
     routes.push({
       url: `${baseUrl}/${locale}`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
-      alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${baseUrl}/${l}`])
-        ),
-      },
+      alternates: { languages: homeLanguageAlternates },
     });
   }
 
-  // Programmatic SEO pages for each locale
-  for (const locale of locales) {
-    for (const slug of seoSlugs) {
-      routes.push({
-        url: `${baseUrl}/${locale}/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.9,
-      });
-    }
+  // 2. Programmatic SEO landing pages — content is English, so only the
+  //    canonical English URLs are submitted (other locales canonicalize here).
+  for (const slug of seoPageSlugs) {
+    routes.push({
+      url: `${baseUrl}/en/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    });
   }
 
-  // Blog index pages
-  for (const locale of Object.keys(blogSlugs)) {
+  // 3. Blog index pages (locales with their own blog content).
+  for (const locale of ["en", "ru"]) {
     routes.push({
       url: `${baseUrl}/${locale}/blog`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     });
+  }
 
-    // Individual blog posts
-    for (const slug of blogSlugs[locale]) {
+  // 4. Blog posts — only canonical URLs (English set under /en, Russian under /ru).
+  for (const locale of ["en", "ru"] as const) {
+    for (const post of getBlogPosts(locale)) {
       routes.push({
-        url: `${baseUrl}/${locale}/blog/${slug}`,
-        lastModified: new Date(),
+        url: `${baseUrl}/${locale}/blog/${post.slug}`,
+        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,
       });

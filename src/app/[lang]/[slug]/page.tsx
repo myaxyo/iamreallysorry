@@ -21,16 +21,20 @@ export async function generateMetadata({
 
   const baseUrl = "https://iamreallysorry.com";
 
+  // Content is English for every locale, so consolidate ranking signals
+  // onto the English URL to avoid duplicate-content dilution.
+  const canonicalUrl = `${baseUrl}/en/${slug}`;
+
   return {
     title: page.metaTitle,
     description: page.metaDescription,
     alternates: {
-      canonical: `${baseUrl}/${lang}/${slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `${baseUrl}/${lang}/${slug}`,
+      url: canonicalUrl,
       siteName: "iamreallysorry.com",
       type: "website",
     },

@@ -149,23 +149,26 @@ export default function LandingContent({ dict, lang }: Props) {
           </a>
         </div>
 
-        {/* Internal SEO Links */}
-        <div className="mt-16 border-t border-gray-800 pt-8">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-            {lang === "en" ? "Apologize to Anyone" : "Извинись перед кем угодно"}
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {SEO_LINKS.map((link) => (
-              <a
-                key={link.slug}
-                href={`/${lang}/${link.slug}`}
-                className="text-sm bg-gray-800/50 border border-gray-700 text-gray-300 px-3 py-2 rounded-lg hover:border-pink-500/50 hover:text-pink-400 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+        {/* Internal SEO Links — English programmatic pages (English content),
+            shown only on the English home so links stay same-language + canonical. */}
+        {lang === "en" && (
+          <div className="mt-16 border-t border-gray-800 pt-8">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Apologize to Anyone, for Anything
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {SEO_LINKS.map((link) => (
+                <a
+                  key={link.slug}
+                  href={`/en/${link.slug}`}
+                  className="text-sm bg-gray-800/50 border border-gray-700 text-gray-300 px-3 py-2 rounded-lg hover:border-pink-500/50 hover:text-pink-400 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Blog link for SEO internal linking */}
         {(lang === "en" || lang === "ru") && (
