@@ -43,6 +43,13 @@ export async function generateMetadata({
       description: post.metaDescription,
       type: "article",
       url: canonicalUrl,
+      images: [`${baseUrl}/${lang}/opengraph-image`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: [`${baseUrl}/${lang}/twitter-image`],
     },
   };
 }

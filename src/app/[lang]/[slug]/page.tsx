@@ -37,11 +37,13 @@ export async function generateMetadata({
       url: canonicalUrl,
       siteName: "iamreallysorry.com",
       type: "website",
+      images: [`${baseUrl}/${lang}/opengraph-image`],
     },
     twitter: {
       card: "summary_large_image",
       title: page.metaTitle,
       description: page.metaDescription,
+      images: [`${baseUrl}/${lang}/twitter-image`],
     },
   };
 }
