@@ -83,5 +83,65 @@
       { "q": "Nasıl paylaşırım?", "a": "Sadece linki gönder. İsim URL'ye gömülü olduğu için kişiselleştirilmiş deneyim sunar." }
     ],
     "cta": "Şimdi Özür Sayfanı Oluştur"
+  },
+  "creator": {
+    "introOhNo": "Eyvah.",
+    "introMessedUp": "Yine batırdın, değil mi?",
+    "introDontWorry": "Merak etme. Hepimizin başına geldi. Hadi düzeltelim.",
+    "introCta": "Özür dilememe yardım et 🙏",
+    "step": "Adım",
+    "of": "/",
+    "next": "İleri →",
+    "scenarioTitle": "Pekala, bu sefer ne yaptın? 💀",
+    "scenarioSubtitle": "Dürüst ol. Burada kimseyi yargılamıyoruz.",
+    "scenarios": {
+      "forgot": { "label": "Önemli bir şeyi unuttun", "reaction": "Klasik. Bu noktada bir şeyleri unutmak senin için tam bir sanat 💀" },
+      "stupid": { "label": "Aptalca bir şey söyledin", "reaction": "Evet, sana yakışır. Kelimeler bazen zor, değil mi? 😂" },
+      "distant": { "label": "Mesafeli davrandın / görmezden geldin", "reaction": "Telefon bağımlılığı? Duygusal erişilmezlik? İkisi de mi? Daha fazla söyleme 📱" },
+      "argument": { "label": "Aptalca bir tartışma başlattın", "reaction": "Saçma bir şey için miydi? (saçma bir şey içindi) 🙄" },
+      "promise": { "label": "Bir sözü bozdun", "reaction": "Of. Bozulan sözler bambaşka acıtır. İyi ki buradasın ama 🩹" },
+      "rude": { "label": "Kaba ya da duyarsız davrandın", "reaction": "Kelimeler acıtır, sen de biliyorsun. Hadi bunu düzeltelim 🫣" },
+      "lied": { "label": "Yalan söyledin ya da güveni sarstın", "reaction": "Güven kırılgan bir şey. Ama buraya gelmen bir şey ifade ediyor 🫡" },
+      "ghosted": { "label": "Ortadan kayboldun / görünmez oldun", "reaction": "Kaybolma numarası mı? Büyük bir giriş yapma zamanı 👻➡️🎭" },
+      "unknown": { "label": "Açıkçası hiç bilmiyorum", "reaction": "Bilmiyor musun?? Bu bir şekilde daha kötü 😭 Ama düzelteceğiz" },
+      "everything": { "label": "Her şey. Hepsi.", "reaction": "İŞLER FECİ. Yapacak çok işimiz var. Bu özrü efsane yapalım 🫡" }
+    },
+    "relationshipTitle": "Bu özrü kime borçlusun? 🎯",
+    "relationshipSubtitle": "Onunla ilişkin ne?",
+    "relationships": {
+      "partner": "Sevgili / Eş",
+      "friend": "Arkadaş",
+      "family": "Aile üyesi",
+      "work": "İş arkadaşı / Patron",
+      "roommate": "Ev arkadaşı / Komşu",
+      "other": "Diğer"
+    },
+    "toneTitle": "Nasıl bir hava istiyoruz? 🎭",
+    "toneSubtitle": "Özrünün tonunu seç.",
+    "tones": {
+      "funny": "Komik ve abartılı",
+      "sincere": "Samimi ve içten",
+      "meme": "Kendiyle dalga geçen meme"
+    },
+    "nameTitle": "Suçlarının kurbanı kim? 🕵️",
+    "nameSubtitle": "Özür dilemen gereken kişinin adı.",
+    "namePlaceholder": "Onun adı...",
+    "nameConfirm": "Pekala, {name} hayatının en dramatik özrünü almak üzere 🎭",
+    "langTitle": "{name} hangi dili konuşuyor? 🌍",
+    "langSubtitle": "Özür bu dilde olacak. Akıllıca seç.",
+    "generate": "Özrümü oluştur 🚀",
+    "resultTitle": "Özrün hazır!",
+    "resultSubtitle": "Bu linki {name} kişisine gönder. Gerisi kadere kalmış (bir de onun mizah anlayışına).",
+    "copy": "📋 Linki kopyala",
+    "copied": "✓ Kopyalandı!",
+    "preview": "👀 Önizleme",
+    "proTipsLabel": "Pro ipuçları:",
+    "proTips": [
+      "Doğru anda gönder (tartışmanın ortasında değil 😅)",
+      "Telefondan açarlarsa daha iyi çalışır",
+      "Hayır butonuna tıklamak resmen imkansız — rica ederim",
+      "Maksimum dramatik etki için sesi açmalarını söyle 🎻"
+    ],
+    "makeAnother": "Başka bir özür oluştur (kaç kişiyi üzdün böyle?? 😂)"
   }
 }

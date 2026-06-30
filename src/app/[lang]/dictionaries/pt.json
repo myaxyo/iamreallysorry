@@ -83,5 +83,65 @@
       { "q": "Como eu compartilho?", "a": "Basta enviar o link. O nome fica embutido na URL para uma experiência personalizada." }
     ],
     "cta": "Crie Suas Desculpas Agora"
+  },
+  "creator": {
+    "introOhNo": "Ai não.",
+    "introMessedUp": "Você pisou na bola, né?",
+    "introDontWorry": "Relaxa. Já passamos por isso. Bora resolver.",
+    "introCta": "Me ajuda a pedir desculpas 🙏",
+    "step": "Passo",
+    "of": "de",
+    "next": "Próximo →",
+    "scenarioTitle": "Beleza, o que você aprontou dessa vez? 💀",
+    "scenarioSubtitle": "Seja sincero. Aqui ninguém julga.",
+    "scenarios": {
+      "forgot": { "label": "Esqueceu algo importante", "reaction": "Clássico. A essa altura esquecer das coisas já é uma arte pra você 💀" },
+      "stupid": { "label": "Falou alguma besteira", "reaction": "É, faz sentido. As palavras às vezes são difíceis, né? 😂" },
+      "distant": { "label": "Ficou distante / ignorou a pessoa", "reaction": "Vício em celular? Indisponibilidade emocional? Os dois? Não precisa nem falar 📱" },
+      "argument": { "label": "Começou uma briga boba", "reaction": "Foi por causa de algo bobo? (foi por causa de algo bobo) 🙄" },
+      "promise": { "label": "Quebrou uma promessa", "reaction": "Eita. Promessa quebrada dói diferente. Ainda bem que você tá aqui 🩹" },
+      "rude": { "label": "Foi grosso ou insensível", "reaction": "Palavras machucam, e você sabe disso. Bora consertar 🫣" },
+      "lied": { "label": "Mentiu ou quebrou a confiança", "reaction": "Confiança é frágil. Mas aparecer aqui já significa algo 🫡" },
+      "ghosted": { "label": "Deu um perdido / sumiu", "reaction": "Sumiço básico? Hora de reaparecer com tudo 👻➡️🎭" },
+      "unknown": { "label": "Sinceramente nem sei", "reaction": "Não sabe?? Isso de alguma forma é pior 😭 Mas a gente resolve" },
+      "everything": { "label": "Tudo. Tudo mesmo.", "reaction": "TÁ FEIO. Temos trabalho a fazer. Bora fazer um pedido de desculpas lendário 🫡" }
+    },
+    "relationshipTitle": "Pra quem você deve esse pedido de desculpas? 🎯",
+    "relationshipSubtitle": "Qual é a sua relação com essa pessoa?",
+    "relationships": {
+      "partner": "Namorado(a) / Parceiro(a)",
+      "friend": "Amigo(a)",
+      "family": "Familiar",
+      "work": "Colega / Chefe",
+      "roommate": "Colega de quarto / Vizinho",
+      "other": "Outro"
+    },
+    "toneTitle": "Qual é o clima que a gente quer? 🎭",
+    "toneSubtitle": "Escolha o tom do seu pedido de desculpas.",
+    "tones": {
+      "funny": "Engraçado e exagerado",
+      "sincere": "Sincero e do coração",
+      "meme": "Meme autodepreciativo"
+    },
+    "nameTitle": "Quem é a vítima dos seus crimes? 🕵️",
+    "nameSubtitle": "Nome da pessoa pra quem você precisa pedir desculpas.",
+    "namePlaceholder": "O nome da pessoa...",
+    "nameConfirm": "Beleza, {name} está prestes a receber o pedido de desculpas mais dramático da vida 🎭",
+    "langTitle": "Que idioma {name} fala? 🌍",
+    "langSubtitle": "O pedido de desculpas vai ser nesse idioma. Escolha com sabedoria.",
+    "generate": "Gerar meu pedido de desculpas 🚀",
+    "resultTitle": "Seu pedido de desculpas tá pronto!",
+    "resultSubtitle": "Envie este link pra {name}. O resto é com o destino (e o senso de humor da pessoa).",
+    "copy": "📋 Copiar link",
+    "copied": "✓ Copiado!",
+    "preview": "👀 Pré-visualizar",
+    "proTipsLabel": "Dicas pro:",
+    "proTips": [
+      "Envie na hora certa (não no meio de uma briga 😅)",
+      "Funciona melhor se a pessoa abrir no celular",
+      "O botão Não é literalmente impossível de clicar — de nada",
+      "Diga pra pessoa aumentar o volume pro efeito dramático máximo 🎻"
+    ],
+    "makeAnother": "Fazer outro pedido de desculpas (quantas pessoas você irritou?? 😂)"
   }
 }

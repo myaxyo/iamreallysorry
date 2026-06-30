@@ -24,7 +24,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   // Otherwise, this is a CREATOR discovering or building an apology
   return (
     <>
-      <CreatorFlow lang={lang} />
+      <CreatorFlow lang={lang} dict={dict.creator} />
       <LandingContent dict={dict} lang={lang} />
     </>
   );

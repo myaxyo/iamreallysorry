@@ -83,5 +83,65 @@
       { "q": "¿Cómo lo comparto?", "a": "Solo envía el enlace. El nombre está integrado en la URL." }
     ],
     "cta": "Crear mi Disculpa"
+  },
+  "creator": {
+    "introOhNo": "Oh no.",
+    "introMessedUp": "La cagaste, ¿verdad?",
+    "introDontWorry": "Tranqui. A todos nos ha pasado. Vamos a arreglarlo.",
+    "introCta": "Ayúdame a disculparme 🙏",
+    "step": "Paso",
+    "of": "de",
+    "next": "Siguiente →",
+    "scenarioTitle": "Bueno, ¿qué hiciste esta vez? 💀",
+    "scenarioSubtitle": "Sé honesto. Aquí no juzgamos.",
+    "scenarios": {
+      "forgot": { "label": "Olvidaste algo importante", "reaction": "Clásico. A estas alturas olvidar cosas es todo un arte para ti 💀" },
+      "stupid": { "label": "Dijiste algo estúpido", "reaction": "Sí, cuadra. Las palabras a veces son difíciles, ¿eh? 😂" },
+      "distant": { "label": "Estuviste distante / los ignoraste", "reaction": "¿Adicción al móvil? ¿Indisponibilidad emocional? ¿Ambas? No digas más 📱" },
+      "argument": { "label": "Empezaste una discusión tonta", "reaction": "¿Fue por algo tonto? (fue por algo tonto) 🙄" },
+      "promise": { "label": "Rompiste una promesa", "reaction": "Uf. Las promesas rotas duelen distinto. Menos mal que estás aquí 🩹" },
+      "rude": { "label": "Fuiste grosero o insensible", "reaction": "Las palabras duelen, y lo sabes. Vamos a arreglarlo 🫣" },
+      "lied": { "label": "Mentiste o rompiste su confianza", "reaction": "La confianza es frágil. Pero presentarte aquí significa algo 🫡" },
+      "ghosted": { "label": "Les hiciste ghosting / desapareciste", "reaction": "¿Acto de desaparición? Hora de reaparecer por todo lo alto 👻➡️🎭" },
+      "unknown": { "label": "La verdad ni sé", "reaction": "¿No sabes?? Eso de alguna forma es peor 😭 Pero lo arreglamos" },
+      "everything": { "label": "Todo. Absolutamente todo.", "reaction": "FATAL. Tenemos trabajo que hacer. Hagamos esta disculpa legendaria 🫡" }
+    },
+    "relationshipTitle": "¿A quién le debes esta disculpa? 🎯",
+    "relationshipSubtitle": "¿Qué relación tienes con esa persona?",
+    "relationships": {
+      "partner": "Pareja",
+      "friend": "Amigo/a",
+      "family": "Familiar",
+      "work": "Compañero/a / Jefe",
+      "roommate": "Compañero de piso / Vecino",
+      "other": "Otro"
+    },
+    "toneTitle": "¿Qué onda buscamos? 🎭",
+    "toneSubtitle": "Elige el tono de tu disculpa.",
+    "tones": {
+      "funny": "Divertido y exagerado",
+      "sincere": "Sincero y de corazón",
+      "meme": "Meme autocrítico"
+    },
+    "nameTitle": "¿Quién es la víctima de tus crímenes? 🕵️",
+    "nameSubtitle": "Nombre de la persona a la que necesitas pedir disculpas.",
+    "namePlaceholder": "Su nombre...",
+    "nameConfirm": "Perfecto, {name} está a punto de recibir la disculpa más dramática de su vida 🎭",
+    "langTitle": "¿Qué idioma habla {name}? 🌍",
+    "langSubtitle": "La disculpa será en este idioma. Elige sabiamente.",
+    "generate": "Generar mi disculpa 🚀",
+    "resultTitle": "¡Tu disculpa está lista!",
+    "resultSubtitle": "Envía este enlace a {name}. El resto depende del destino (y de su sentido del humor).",
+    "copy": "📋 Copiar enlace",
+    "copied": "✓ ¡Copiado!",
+    "preview": "👀 Vista previa",
+    "proTipsLabel": "Consejos pro:",
+    "proTips": [
+      "Envíalo en el momento adecuado (no en medio de una discusión 😅)",
+      "Funciona mejor si lo abren en el móvil",
+      "El botón No es literalmente imposible de clicar — de nada",
+      "Diles que suban el volumen para el máximo efecto dramático 🎻"
+    ],
+    "makeAnother": "Hacer otra disculpa (¿a cuánta gente molestaste?? 😂)"
   }
 }

@@ -83,5 +83,65 @@
       { "q": "Comment je le partage ?", "a": "Envoyez simplement le lien. Le prénom est intégré dans l'URL pour une expérience personnalisée." }
     ],
     "cta": "Créez Vos Excuses Maintenant"
+  },
+  "creator": {
+    "introOhNo": "Oh non.",
+    "introMessedUp": "T'as merdé, pas vrai ?",
+    "introDontWorry": "T'inquiète. Ça nous est tous arrivé. On va arranger ça.",
+    "introCta": "Aide-moi à m'excuser 🙏",
+    "step": "Étape",
+    "of": "sur",
+    "next": "Suivant →",
+    "scenarioTitle": "Bon, qu'est-ce que t'as fait cette fois ? 💀",
+    "scenarioSubtitle": "Sois honnête. Ici on ne juge pas.",
+    "scenarios": {
+      "forgot": { "label": "Oublié un truc important", "reaction": "Du classique. À ce stade, oublier des trucs c'est un art chez toi 💀" },
+      "stupid": { "label": "Dit une bêtise", "reaction": "Ouais, ça se tient. Les mots c'est dur parfois, hein ? 😂" },
+      "distant": { "label": "Été distant / l'a ignoré(e)", "reaction": "Accro au téléphone ? Indisponibilité émotionnelle ? Les deux ? N'en dis pas plus 📱" },
+      "argument": { "label": "Lancé une dispute débile", "reaction": "C'était pour un truc débile ? (c'était pour un truc débile) 🙄" },
+      "promise": { "label": "Rompu une promesse", "reaction": "Aïe. Les promesses brisées, ça fait mal différemment. Heureusement que t'es là 🩹" },
+      "rude": { "label": "Été impoli ou insensible", "reaction": "Les mots blessent, et tu le sais. On va arranger ça 🫣" },
+      "lied": { "label": "Menti ou trahi sa confiance", "reaction": "La confiance est fragile. Mais être là, ça compte 🫡" },
+      "ghosted": { "label": "Ghosté / disparu", "reaction": "Numéro de disparition ? Il est temps de réapparaître en grand 👻➡️🎭" },
+      "unknown": { "label": "J'en sais rien franchement", "reaction": "Tu sais pas ?? C'est encore pire d'une certaine façon 😭 Mais on va arranger ça" },
+      "everything": { "label": "Tout. Absolument tout.", "reaction": "C'EST LA CATA. On a du boulot. Faisons des excuses légendaires 🫡" }
+    },
+    "relationshipTitle": "À qui tu dois ces excuses ? 🎯",
+    "relationshipSubtitle": "C'est quoi ta relation avec cette personne ?",
+    "relationships": {
+      "partner": "Partenaire / moitié",
+      "friend": "Ami(e)",
+      "family": "Membre de la famille",
+      "work": "Collègue / Patron",
+      "roommate": "Coloc / Voisin",
+      "other": "Autre"
+    },
+    "toneTitle": "On part sur quelle ambiance ? 🎭",
+    "toneSubtitle": "Choisis le ton de tes excuses.",
+    "tones": {
+      "funny": "Drôle et exagéré",
+      "sincere": "Sincère et touchant",
+      "meme": "Meme autodérision"
+    },
+    "nameTitle": "Qui est la victime de tes crimes ? 🕵️",
+    "nameSubtitle": "Le prénom de la personne à qui tu dois t'excuser.",
+    "namePlaceholder": "Son prénom...",
+    "nameConfirm": "Parfait, {name} est sur le point de recevoir les excuses les plus dramatiques de sa vie 🎭",
+    "langTitle": "Quelle langue parle {name} ? 🌍",
+    "langSubtitle": "Les excuses seront dans cette langue. Choisis bien.",
+    "generate": "Générer mes excuses 🚀",
+    "resultTitle": "Tes excuses sont prêtes !",
+    "resultSubtitle": "Envoie ce lien à {name}. Le reste, c'est le destin qui décide (et son sens de l'humour).",
+    "copy": "📋 Copier le lien",
+    "copied": "✓ Copié !",
+    "preview": "👀 Aperçu",
+    "proTipsLabel": "Astuces de pro :",
+    "proTips": [
+      "Envoie-le au bon moment (pas en pleine dispute 😅)",
+      "Ça marche mieux s'ils l'ouvrent sur leur téléphone",
+      "Le bouton Non est littéralement impossible à cliquer — de rien",
+      "Dis-leur de monter le volume pour un max d'effet dramatique 🎻"
+    ],
+    "makeAnother": "Faire d'autres excuses (combien de personnes t'as vexées ?? 😂)"
   }
 }

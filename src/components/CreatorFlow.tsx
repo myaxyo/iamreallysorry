@@ -17,52 +17,75 @@ const LANGUAGES = [
   { code: "ko", flag: "🇰🇷", name: "한국어" },
 ];
 
-const SCENARIOS = [
-  { emoji: "😤", label: "Forgot something important", value: "forgot" },
-  { emoji: "🤡", label: "Said something stupid", value: "stupid" },
-  { emoji: "📱", label: "Was being distant / ignored them", value: "distant" },
-  { emoji: "😡", label: "Started a dumb argument", value: "argument" },
-  { emoji: "💔", label: "Broke a promise", value: "promise" },
-  { emoji: "🙊", label: "Was rude or insensitive", value: "rude" },
-  { emoji: "🤥", label: "Lied or broke their trust", value: "lied" },
-  { emoji: "👻", label: "Ghosted / disappeared on them", value: "ghosted" },
-  { emoji: "🤷", label: "I don't even know tbh", value: "unknown" },
-  { emoji: "☠️", label: "Everything. All of it.", value: "everything" },
+// Order + emojis are fixed; labels/reactions come from the dictionary.
+const SCENARIO_ORDER = [
+  { emoji: "😤", value: "forgot" },
+  { emoji: "🤡", value: "stupid" },
+  { emoji: "📱", value: "distant" },
+  { emoji: "😡", value: "argument" },
+  { emoji: "💔", value: "promise" },
+  { emoji: "🙊", value: "rude" },
+  { emoji: "🤥", value: "lied" },
+  { emoji: "👻", value: "ghosted" },
+  { emoji: "🤷", value: "unknown" },
+  { emoji: "☠️", value: "everything" },
 ];
 
-const CREATOR_REACTIONS: Record<string, string> = {
-  forgot: "Classic move. Forgetting stuff is an art form for you at this point 💀",
-  stupid: "Yeah that tracks. Words are hard sometimes, huh? 😂",
-  distant: "Phone addiction? Emotional unavailability? Both? Say no more 📱",
-  argument: "Was it about something dumb? (it was about something dumb) 🙄",
-  promise: "Oof. Broken promises hit different. Good thing you're here though 🩹",
-  rude: "Words hurt, and you know it. Let's make this right 🫣",
-  lied: "Trust is fragile. But showing up here means something 🫡",
-  ghosted: "Disappearing act? Time to reappear with a bang 👻➡️🎭",
-  unknown: "You don't know?? That's somehow worse 😭 But we'll fix it",
-  everything: "DOWN BAD. We got work to do. Let's make this apology legendary 🫡",
-};
-
-const RELATIONSHIPS = [
-  { emoji: "💕", label: "Partner / SO", value: "partner" },
-  { emoji: "👫", label: "Friend", value: "friend" },
-  { emoji: "👨‍👩‍👧", label: "Family member", value: "family" },
-  { emoji: "💼", label: "Coworker / Boss", value: "work" },
-  { emoji: "🏠", label: "Roommate / Neighbor", value: "roommate" },
-  { emoji: "🤷", label: "Other", value: "other" },
+const RELATIONSHIP_ORDER = [
+  { emoji: "💕", value: "partner" },
+  { emoji: "👫", value: "friend" },
+  { emoji: "👨‍👩‍👧", value: "family" },
+  { emoji: "💼", value: "work" },
+  { emoji: "🏠", value: "roommate" },
+  { emoji: "🤷", value: "other" },
 ];
 
-const TONES = [
-  { emoji: "😂", label: "Funny & over-the-top", value: "funny" },
-  { emoji: "🥺", label: "Sincere & heartfelt", value: "sincere" },
-  { emoji: "💀", label: "Self-deprecating meme", value: "meme" },
+const TONE_ORDER = [
+  { emoji: "😂", value: "funny" },
+  { emoji: "🥺", value: "sincere" },
+  { emoji: "💀", value: "meme" },
 ];
+
+interface CreatorDict {
+  introOhNo: string;
+  introMessedUp: string;
+  introDontWorry: string;
+  introCta: string;
+  step: string;
+  of: string;
+  next: string;
+  scenarioTitle: string;
+  scenarioSubtitle: string;
+  scenarios: Record<string, { label: string; reaction: string }>;
+  relationshipTitle: string;
+  relationshipSubtitle: string;
+  relationships: Record<string, string>;
+  toneTitle: string;
+  toneSubtitle: string;
+  tones: Record<string, string>;
+  nameTitle: string;
+  nameSubtitle: string;
+  namePlaceholder: string;
+  nameConfirm: string;
+  langTitle: string;
+  langSubtitle: string;
+  generate: string;
+  resultTitle: string;
+  resultSubtitle: string;
+  copy: string;
+  copied: string;
+  preview: string;
+  proTipsLabel: string;
+  proTips: string[];
+  makeAnother: string;
+}
 
 interface Props {
   lang: string;
+  dict: CreatorDict;
 }
 
-export default function CreatorFlow({ lang }: Props) {
+export default function CreatorFlow({ lang, dict }: Props) {
   const [step, setStep] = useState(0);
   const [scenario, setScenario] = useState("");
   const [relationship, setRelationship] = useState("");
@@ -73,6 +96,8 @@ export default function CreatorFlow({ lang }: Props) {
   const [copied, setCopied] = useState(false);
 
   const totalSteps = 5;
+  const fill = (s: string) => s.replace("{name}", name.trim());
+  const stepLabel = (n: number) => `${dict.step} ${n} ${dict.of} ${totalSteps}`;
 
   const handleGenerate = () => {
     const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
@@ -109,19 +134,19 @@ export default function CreatorFlow({ lang }: Props) {
             </motion.div>
             <h1 className="text-3xl md:text-5xl font-black mb-4">
               <span className="bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
-                Oh no.
+                {dict.introOhNo}
               </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-2">You messed up, didn&apos;t you?</p>
-            <p className="text-gray-500 mb-8">Don&apos;t worry. We&apos;ve all been there. Let&apos;s fix this.</p>
-            
+            <p className="text-xl text-gray-300 mb-2">{dict.introMessedUp}</p>
+            <p className="text-gray-500 mb-8">{dict.introDontWorry}</p>
+
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl text-lg cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setStep(1)}
             >
-              Help me apologize 🙏
+              {dict.introCta}
             </motion.button>
           </motion.div>
         )}
@@ -136,14 +161,14 @@ export default function CreatorFlow({ lang }: Props) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">Step 1 of {totalSteps}</p>
+            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">{stepLabel(1)}</p>
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
-              Alright, what did you do this time? 💀
+              {dict.scenarioTitle}
             </h2>
-            <p className="text-gray-400 mb-8">Be honest. We don&apos;t judge here.</p>
+            <p className="text-gray-400 mb-8">{dict.scenarioSubtitle}</p>
 
             <div className="grid grid-cols-1 gap-3">
-              {SCENARIOS.map((s) => (
+              {SCENARIO_ORDER.map((s) => (
                 <motion.button
                   key={s.value}
                   className={`flex items-center gap-3 px-5 py-4 rounded-xl border text-left cursor-pointer transition-colors ${
@@ -156,7 +181,7 @@ export default function CreatorFlow({ lang }: Props) {
                   onClick={() => setScenario(s.value)}
                 >
                   <span className="text-2xl">{s.emoji}</span>
-                  <span className="text-base md:text-lg">{s.label}</span>
+                  <span className="text-base md:text-lg">{dict.scenarios[s.value]?.label}</span>
                 </motion.button>
               ))}
             </div>
@@ -168,7 +193,7 @@ export default function CreatorFlow({ lang }: Props) {
                 className="mt-6"
               >
                 <p className="text-pink-400 italic mb-4">
-                  {CREATOR_REACTIONS[scenario]}
+                  {dict.scenarios[scenario]?.reaction}
                 </p>
                 <motion.button
                   className="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl cursor-pointer"
@@ -176,7 +201,7 @@ export default function CreatorFlow({ lang }: Props) {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setStep(2)}
                 >
-                  Next →
+                  {dict.next}
                 </motion.button>
               </motion.div>
             )}
@@ -193,14 +218,14 @@ export default function CreatorFlow({ lang }: Props) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">Step 2 of {totalSteps}</p>
+            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">{stepLabel(2)}</p>
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
-              Who do you owe this apology to? 🎯
+              {dict.relationshipTitle}
             </h2>
-            <p className="text-gray-400 mb-8">What&apos;s your relationship with them?</p>
+            <p className="text-gray-400 mb-8">{dict.relationshipSubtitle}</p>
 
             <div className="grid grid-cols-2 gap-3">
-              {RELATIONSHIPS.map((r) => (
+              {RELATIONSHIP_ORDER.map((r) => (
                 <motion.button
                   key={r.value}
                   className={`flex items-center gap-3 px-4 py-4 rounded-xl border cursor-pointer transition-colors ${
@@ -213,7 +238,7 @@ export default function CreatorFlow({ lang }: Props) {
                   onClick={() => setRelationship(r.value)}
                 >
                   <span className="text-2xl">{r.emoji}</span>
-                  <span className="text-sm md:text-base">{r.label}</span>
+                  <span className="text-sm md:text-base">{dict.relationships[r.value]}</span>
                 </motion.button>
               ))}
             </div>
@@ -230,7 +255,7 @@ export default function CreatorFlow({ lang }: Props) {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setStep(3)}
                 >
-                  Next →
+                  {dict.next}
                 </motion.button>
               </motion.div>
             )}
@@ -247,14 +272,14 @@ export default function CreatorFlow({ lang }: Props) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">Step 3 of {totalSteps}</p>
+            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">{stepLabel(3)}</p>
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
-              What vibe are we going for? 🎭
+              {dict.toneTitle}
             </h2>
-            <p className="text-gray-400 mb-8">Pick the tone of your apology.</p>
+            <p className="text-gray-400 mb-8">{dict.toneSubtitle}</p>
 
             <div className="grid grid-cols-1 gap-3">
-              {TONES.map((t) => (
+              {TONE_ORDER.map((t) => (
                 <motion.button
                   key={t.value}
                   className={`flex items-center gap-3 px-5 py-4 rounded-xl border text-left cursor-pointer transition-colors ${
@@ -267,7 +292,7 @@ export default function CreatorFlow({ lang }: Props) {
                   onClick={() => setTone(t.value)}
                 >
                   <span className="text-2xl">{t.emoji}</span>
-                  <span className="text-base md:text-lg">{t.label}</span>
+                  <span className="text-base md:text-lg">{dict.tones[t.value]}</span>
                 </motion.button>
               ))}
             </div>
@@ -283,7 +308,7 @@ export default function CreatorFlow({ lang }: Props) {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep(4)}
               >
-                Next →
+                {dict.next}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -299,17 +324,17 @@ export default function CreatorFlow({ lang }: Props) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">Step 4 of {totalSteps}</p>
+            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">{stepLabel(4)}</p>
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
-              Who&apos;s the victim of your crimes? 🕵️
+              {dict.nameTitle}
             </h2>
-            <p className="text-gray-400 mb-8">Name of the person you need to apologize to.</p>
+            <p className="text-gray-400 mb-8">{dict.nameSubtitle}</p>
 
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Their name..."
+              placeholder={dict.namePlaceholder}
               className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white text-center text-xl placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors mb-6"
               autoFocus
             />
@@ -320,7 +345,7 @@ export default function CreatorFlow({ lang }: Props) {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <p className="text-gray-400 mb-4 italic">
-                  Alright, {name.trim()} is about to get the most dramatic apology of their life 🎭
+                  {fill(dict.nameConfirm)}
                 </p>
                 <motion.button
                   className="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl cursor-pointer"
@@ -328,7 +353,7 @@ export default function CreatorFlow({ lang }: Props) {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setStep(5)}
                 >
-                  Next →
+                  {dict.next}
                 </motion.button>
               </motion.div>
             )}
@@ -345,12 +370,12 @@ export default function CreatorFlow({ lang }: Props) {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">Step 5 of {totalSteps}</p>
+            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide">{stepLabel(5)}</p>
             <h2 className="text-2xl md:text-4xl font-bold mb-2">
-              What language does {name.trim()} speak? 🌍
+              {fill(dict.langTitle)}
             </h2>
             <p className="text-gray-400 mb-8">
-              The apology will be in this language. Choose wisely.
+              {dict.langSubtitle}
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
@@ -378,13 +403,13 @@ export default function CreatorFlow({ lang }: Props) {
               whileTap={{ scale: 0.95 }}
               onClick={handleGenerate}
             >
-              Generate my apology 🚀
+              {dict.generate}
             </motion.button>
           </motion.div>
         )}
 
         {/* Step 6: Generated link */}
-        {step === (totalSteps + 1) && (
+        {step === totalSteps + 1 && (
           <motion.div
             key="result"
             className="text-center max-w-lg w-full"
@@ -400,10 +425,10 @@ export default function CreatorFlow({ lang }: Props) {
               🎉
             </motion.div>
             <h2 className="text-2xl md:text-4xl font-bold mb-2 text-white">
-              Your apology is ready!
+              {dict.resultTitle}
             </h2>
             <p className="text-gray-400 mb-6">
-              Send this link to {name.trim()}. The rest is up to fate (and their sense of humor).
+              {fill(dict.resultSubtitle)}
             </p>
 
             {/* Link display */}
@@ -420,7 +445,7 @@ export default function CreatorFlow({ lang }: Props) {
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCopy}
               >
-                {copied ? "✓ Copied!" : "📋 Copy Link"}
+                {copied ? dict.copied : dict.copy}
               </motion.button>
 
               <motion.a
@@ -430,19 +455,18 @@ export default function CreatorFlow({ lang }: Props) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                👀 Preview
+                {dict.preview}
               </motion.a>
             </div>
 
             <div className="mt-8 p-4 bg-gray-800/50 border border-gray-700 rounded-xl">
               <p className="text-gray-400 text-sm">
-                💡 <strong className="text-gray-300">Pro tips:</strong>
+                💡 <strong className="text-gray-300">{dict.proTipsLabel}</strong>
               </p>
               <ul className="text-gray-500 text-sm mt-2 space-y-1 text-left">
-                <li>• Send it at the right moment (not in the middle of an argument 😅)</li>
-                <li>• Works best if they open it on their phone</li>
-                <li>• The No button is literally impossible to click — you&apos;re welcome</li>
-                <li>• Tell them to turn up the volume for maximum dramatic effect 🎻</li>
+                {dict.proTips.map((tip, i) => (
+                  <li key={i}>• {tip}</li>
+                ))}
               </ul>
             </div>
 
@@ -457,7 +481,7 @@ export default function CreatorFlow({ lang }: Props) {
                 setGeneratedLink("");
               }}
             >
-              Make another apology (how many people did you upset?? 😂)
+              {dict.makeAnother}
             </motion.button>
           </motion.div>
         )}

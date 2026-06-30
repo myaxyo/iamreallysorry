@@ -83,5 +83,65 @@
       { "q": "어떻게 공유하나요?", "a": "링크만 보내세요. 이름이 URL에 포함되어 있어 맞춤형 경험을 제공합니다." }
     ],
     "cta": "지금 사과 페이지 만들기"
+  },
+  "creator": {
+    "introOhNo": "어이쿠.",
+    "introMessedUp": "사고 쳤구나, 그렇지?",
+    "introDontWorry": "걱정 마. 다들 겪는 일이야. 같이 해결하자.",
+    "introCta": "사과하는 거 도와줘 🙏",
+    "step": "단계",
+    "of": "/",
+    "next": "다음 →",
+    "scenarioTitle": "자, 이번엔 무슨 짓을 했어? 💀",
+    "scenarioSubtitle": "솔직하게. 여기선 아무도 판단 안 해.",
+    "scenarios": {
+      "forgot": { "label": "중요한 걸 깜빡했어", "reaction": "클래식하네. 이쯤 되면 깜빡하는 게 너한텐 예술의 경지야 💀" },
+      "stupid": { "label": "멍청한 말을 했어", "reaction": "응 그럴 만해. 말이란 게 가끔 어렵지? 😂" },
+      "distant": { "label": "거리를 뒀어 / 무시했어", "reaction": "폰 중독? 감정적 부재? 둘 다? 더 말 안 해도 돼 📱" },
+      "argument": { "label": "쓸데없는 말다툼을 시작했어", "reaction": "별것도 아닌 걸로 싸웠지? (별것도 아닌 거 맞잖아) 🙄" },
+      "promise": { "label": "약속을 어겼어", "reaction": "아이고. 깨진 약속은 차원이 다르게 아프지. 그래도 여기 온 게 다행이야 🩹" },
+      "rude": { "label": "무례하거나 무신경했어", "reaction": "말은 상처가 돼, 너도 알잖아. 제대로 바로잡자 🫣" },
+      "lied": { "label": "거짓말하거나 신뢰를 깼어", "reaction": "신뢰는 약한 거야. 그래도 여기 온 건 의미가 있어 🫡" },
+      "ghosted": { "label": "잠수 탔어 / 사라졌어", "reaction": "사라지기 신공? 이제 화려하게 다시 등장할 시간 👻➡️🎭" },
+      "unknown": { "label": "솔직히 나도 몰라", "reaction": "모른다고?? 그게 어떻게 보면 더 심각해 😭 그래도 해결해줄게" },
+      "everything": { "label": "전부 다. 모든 게 다.", "reaction": "완전 망했네. 할 일이 많아. 이 사과를 전설로 만들자 🫡" }
+    },
+    "relationshipTitle": "이 사과는 누구한테 하는 거야? 🎯",
+    "relationshipSubtitle": "그 사람과 어떤 관계야?",
+    "relationships": {
+      "partner": "연인 / 애인",
+      "friend": "친구",
+      "family": "가족",
+      "work": "동료 / 상사",
+      "roommate": "룸메이트 / 이웃",
+      "other": "기타"
+    },
+    "toneTitle": "어떤 분위기로 갈까? 🎭",
+    "toneSubtitle": "사과의 톤을 골라줘.",
+    "tones": {
+      "funny": "웃기고 과장된",
+      "sincere": "진심 어리고 따뜻한",
+      "meme": "자학 개그 밈"
+    },
+    "nameTitle": "네 범죄의 피해자는 누구야? 🕵️",
+    "nameSubtitle": "사과해야 할 사람의 이름.",
+    "namePlaceholder": "그 사람 이름...",
+    "nameConfirm": "좋아, {name}이(가) 인생에서 가장 드라마틱한 사과를 받기 직전이야 🎭",
+    "langTitle": "{name}은(는) 어떤 언어를 써? 🌍",
+    "langSubtitle": "사과는 이 언어로 만들어져. 신중하게 골라.",
+    "generate": "내 사과 생성하기 🚀",
+    "resultTitle": "사과 준비 완료!",
+    "resultSubtitle": "이 링크를 {name}에게 보내. 나머지는 운명에 맡겨 (그리고 그 사람의 유머 감각에).",
+    "copy": "📋 링크 복사",
+    "copied": "✓ 복사됨!",
+    "preview": "👀 미리보기",
+    "proTipsLabel": "프로 팁:",
+    "proTips": [
+      "적절한 타이밍에 보내 (말다툼 중간은 안 돼 😅)",
+      "상대가 폰으로 열면 제일 잘 작동해",
+      "아니요 버튼은 진짜 클릭 불가능해 — 천만에",
+      "최대 드라마틱 효과를 위해 볼륨을 키우라고 말해줘 🎻"
+    ],
+    "makeAnother": "사과 하나 더 만들기 (도대체 몇 명을 화나게 한 거야?? 😂)"
   }
 }

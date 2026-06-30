@@ -83,5 +83,65 @@
       { "q": "Wie teile ich es?", "a": "Einfach den Link senden. Der Name ist in der URL eingebettet für ein personalisiertes Erlebnis." }
     ],
     "cta": "Erstelle Jetzt Deine Entschuldigung"
+  },
+  "creator": {
+    "introOhNo": "Oh nein.",
+    "introMessedUp": "Du hast es verbockt, oder?",
+    "introDontWorry": "Keine Sorge. Das kennen wir alle. Lass uns das regeln.",
+    "introCta": "Hilf mir, mich zu entschuldigen 🙏",
+    "step": "Schritt",
+    "of": "von",
+    "next": "Weiter →",
+    "scenarioTitle": "Also, was hast du diesmal angestellt? 💀",
+    "scenarioSubtitle": "Sei ehrlich. Hier wird nicht geurteilt.",
+    "scenarios": {
+      "forgot": { "label": "Etwas Wichtiges vergessen", "reaction": "Klassiker. Dinge vergessen ist bei dir mittlerweile eine Kunstform 💀" },
+      "stupid": { "label": "Was Dummes gesagt", "reaction": "Ja, passt. Worte sind manchmal schwer, was? 😂" },
+      "distant": { "label": "War distanziert / hat ignoriert", "reaction": "Handysucht? Emotional nicht verfügbar? Beides? Sag nichts mehr 📱" },
+      "argument": { "label": "Einen dummen Streit angefangen", "reaction": "Ging's um was Dummes? (es ging um was Dummes) 🙄" },
+      "promise": { "label": "Ein Versprechen gebrochen", "reaction": "Autsch. Gebrochene Versprechen treffen anders. Gut, dass du hier bist 🩹" },
+      "rude": { "label": "War unhöflich oder gefühllos", "reaction": "Worte tun weh, und das weißt du. Lass uns das geradebiegen 🫣" },
+      "lied": { "label": "Gelogen oder Vertrauen gebrochen", "reaction": "Vertrauen ist zerbrechlich. Aber dass du hier bist, bedeutet was 🫡" },
+      "ghosted": { "label": "Geghostet / abgetaucht", "reaction": "Verschwindenummer? Zeit, mit einem Knall wieder aufzutauchen 👻➡️🎭" },
+      "unknown": { "label": "Ich weiß es ehrlich nicht", "reaction": "Du weißt es nicht?? Das ist irgendwie schlimmer 😭 Aber wir regeln das" },
+      "everything": { "label": "Alles. Wirklich alles.", "reaction": "GANZ ÜBEL. Wir haben zu tun. Machen wir diese Entschuldigung legendär 🫡" }
+    },
+    "relationshipTitle": "Wem schuldest du diese Entschuldigung? 🎯",
+    "relationshipSubtitle": "Was ist deine Beziehung zu dieser Person?",
+    "relationships": {
+      "partner": "Partner / Schatz",
+      "friend": "Freund(in)",
+      "family": "Familienmitglied",
+      "work": "Kollege / Chef",
+      "roommate": "Mitbewohner / Nachbar",
+      "other": "Sonstiges"
+    },
+    "toneTitle": "Welche Stimmung wollen wir? 🎭",
+    "toneSubtitle": "Wähle den Ton deiner Entschuldigung.",
+    "tones": {
+      "funny": "Lustig & übertrieben",
+      "sincere": "Aufrichtig & von Herzen",
+      "meme": "Selbstironisches Meme"
+    },
+    "nameTitle": "Wer ist das Opfer deiner Taten? 🕵️",
+    "nameSubtitle": "Name der Person, bei der du dich entschuldigen musst.",
+    "namePlaceholder": "Ihr Name...",
+    "nameConfirm": "Alles klar, {name} bekommt gleich die dramatischste Entschuldigung des Lebens 🎭",
+    "langTitle": "Welche Sprache spricht {name}? 🌍",
+    "langSubtitle": "Die Entschuldigung wird in dieser Sprache sein. Wähle weise.",
+    "generate": "Meine Entschuldigung generieren 🚀",
+    "resultTitle": "Deine Entschuldigung ist fertig!",
+    "resultSubtitle": "Schick diesen Link an {name}. Der Rest liegt am Schicksal (und ihrem Humor).",
+    "copy": "📋 Link kopieren",
+    "copied": "✓ Kopiert!",
+    "preview": "👀 Vorschau",
+    "proTipsLabel": "Profi-Tipps:",
+    "proTips": [
+      "Schick ihn im richtigen Moment (nicht mitten im Streit 😅)",
+      "Funktioniert am besten, wenn sie ihn auf dem Handy öffnen",
+      "Der Nein-Button ist buchstäblich unmöglich anzuklicken — gern geschehen",
+      "Sag ihnen, sie sollen die Lautstärke aufdrehen für maximalen Drama-Effekt 🎻"
+    ],
+    "makeAnother": "Noch eine Entschuldigung machen (wie viele Leute hast du verärgert?? 😂)"
   }
 }

@@ -146,5 +146,65 @@
       }
     ],
     "cta": "Create Your Apology Now"
+  },
+  "creator": {
+    "introOhNo": "Oh no.",
+    "introMessedUp": "You messed up, didn't you?",
+    "introDontWorry": "Don't worry. We've all been there. Let's fix this.",
+    "introCta": "Help me apologize 🙏",
+    "step": "Step",
+    "of": "of",
+    "next": "Next →",
+    "scenarioTitle": "Alright, what did you do this time? 💀",
+    "scenarioSubtitle": "Be honest. We don't judge here.",
+    "scenarios": {
+      "forgot": { "label": "Forgot something important", "reaction": "Classic move. Forgetting stuff is an art form for you at this point 💀" },
+      "stupid": { "label": "Said something stupid", "reaction": "Yeah that tracks. Words are hard sometimes, huh? 😂" },
+      "distant": { "label": "Was being distant / ignored them", "reaction": "Phone addiction? Emotional unavailability? Both? Say no more 📱" },
+      "argument": { "label": "Started a dumb argument", "reaction": "Was it about something dumb? (it was about something dumb) 🙄" },
+      "promise": { "label": "Broke a promise", "reaction": "Oof. Broken promises hit different. Good thing you're here though 🩹" },
+      "rude": { "label": "Was rude or insensitive", "reaction": "Words hurt, and you know it. Let's make this right 🫣" },
+      "lied": { "label": "Lied or broke their trust", "reaction": "Trust is fragile. But showing up here means something 🫡" },
+      "ghosted": { "label": "Ghosted / disappeared on them", "reaction": "Disappearing act? Time to reappear with a bang 👻➡️🎭" },
+      "unknown": { "label": "I don't even know tbh", "reaction": "You don't know?? That's somehow worse 😭 But we'll fix it" },
+      "everything": { "label": "Everything. All of it.", "reaction": "DOWN BAD. We got work to do. Let's make this apology legendary 🫡" }
+    },
+    "relationshipTitle": "Who do you owe this apology to? 🎯",
+    "relationshipSubtitle": "What's your relationship with them?",
+    "relationships": {
+      "partner": "Partner / SO",
+      "friend": "Friend",
+      "family": "Family member",
+      "work": "Coworker / Boss",
+      "roommate": "Roommate / Neighbor",
+      "other": "Other"
+    },
+    "toneTitle": "What vibe are we going for? 🎭",
+    "toneSubtitle": "Pick the tone of your apology.",
+    "tones": {
+      "funny": "Funny & over-the-top",
+      "sincere": "Sincere & heartfelt",
+      "meme": "Self-deprecating meme"
+    },
+    "nameTitle": "Who's the victim of your crimes? 🕵️",
+    "nameSubtitle": "Name of the person you need to apologize to.",
+    "namePlaceholder": "Their name...",
+    "nameConfirm": "Alright, {name} is about to get the most dramatic apology of their life 🎭",
+    "langTitle": "What language does {name} speak? 🌍",
+    "langSubtitle": "The apology will be in this language. Choose wisely.",
+    "generate": "Generate my apology 🚀",
+    "resultTitle": "Your apology is ready!",
+    "resultSubtitle": "Send this link to {name}. The rest is up to fate (and their sense of humor).",
+    "copy": "📋 Copy Link",
+    "copied": "✓ Copied!",
+    "preview": "👀 Preview",
+    "proTipsLabel": "Pro tips:",
+    "proTips": [
+      "Send it at the right moment (not in the middle of an argument 😅)",
+      "Works best if they open it on their phone",
+      "The No button is literally impossible to click — you're welcome",
+      "Tell them to turn up the volume for maximum dramatic effect 🎻"
+    ],
+    "makeAnother": "Make another apology (how many people did you upset?? 😂)"
   }
 }
