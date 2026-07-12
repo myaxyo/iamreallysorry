@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale, locales, type Locale } from "./dictionaries";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 const BASE_URL = "https://iamreallysorry.com";
@@ -151,7 +152,10 @@ export default async function LangLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
