@@ -19,6 +19,9 @@ export default function FloatingEmojis() {
   useEffect(() => {
     setHeight(window.innerHeight);
 
+    // Skip floating emojis for users who prefer reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const emojiList = ["💕", "🌹", "💖", "✨", "💗", "🥺", "💝", "🦋", "💐", "🌸"];
     // Fewer emojis on mobile for performance
     const count = window.innerWidth < 768 ? 8 : 15;
@@ -34,7 +37,7 @@ export default function FloatingEmojis() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
       {emojis.map((emoji) => (
         <motion.div
           key={emoji.id}

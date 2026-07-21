@@ -120,6 +120,7 @@ export default function RunawayButtonI18n({ dict, name }: Props) {
 
       <div className="flex gap-4 md:gap-8 items-center relative min-h-[120px]">
         <motion.button
+          aria-label={dict.yes[Math.min(noAttempts, dict.yes.length - 1)]}
           className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 cursor-pointer text-sm md:text-base"
           animate={{ scale: 1 + noAttempts * 0.12 }}
           whileHover={{ scale: 1.1 + noAttempts * 0.12 }}
@@ -130,6 +131,7 @@ export default function RunawayButtonI18n({ dict, name }: Props) {
         </motion.button>
 
         <motion.button
+          aria-label={dict.no[noAttempts]}
           className="px-6 md:px-8 py-3 md:py-4 bg-gray-700 text-gray-300 font-bold rounded-xl cursor-pointer text-sm md:text-base whitespace-nowrap"
           animate={{ x: noPosition.x, y: noPosition.y, scale: noSize }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}

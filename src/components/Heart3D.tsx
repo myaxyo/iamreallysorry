@@ -1,47 +1,46 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 
 function HeartMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
   const elapsed = useRef(0);
 
+  // Memoize geometry — expensive to create, never changes
+  const geometry = useMemo(() => {
+    const heartShape = new THREE.Shape();
+    const x = 0, y = 0;
+    heartShape.moveTo(x + 0.5, y + 0.5);
+    heartShape.bezierCurveTo(x + 0.5, y + 0.5, x + 0.4, y, x, y);
+    heartShape.bezierCurveTo(x - 0.6, y, x - 0.6, y + 0.7, x - 0.6, y + 0.7);
+    heartShape.bezierCurveTo(x - 0.6, y + 1.1, x - 0.35, y + 1.54, x + 0.5, y + 1.9);
+    heartShape.bezierCurveTo(x + 1.35, y + 1.54, x + 1.6, y + 1.1, x + 1.6, y + 0.7);
+    heartShape.bezierCurveTo(x + 1.6, y + 0.7, x + 1.6, y, x + 1.0, y);
+    heartShape.bezierCurveTo(x + 0.7, y, x + 0.5, y + 0.5, x + 0.5, y + 0.5);
+
+    return new THREE.ExtrudeGeometry(heartShape, {
+      depth: 0.4,
+      bevelEnabled: true,
+      bevelSegments: 8,
+      steps: 2,
+      bevelSize: 0.1,
+      bevelThickness: 0.1,
+    });
+  }, []);
+
   useFrame((_, delta) => {
     if (meshRef.current) {
       elapsed.current += delta;
-      // Beating animation
       const scale = 1 + Math.sin(elapsed.current * 2) * 0.1;
       meshRef.current.scale.set(scale, scale, scale);
       meshRef.current.rotation.y += 0.01;
     }
   });
 
-  // Create heart shape
-  const heartShape = new THREE.Shape();
-  const x = 0,
-    y = 0;
-  heartShape.moveTo(x + 0.5, y + 0.5);
-  heartShape.bezierCurveTo(x + 0.5, y + 0.5, x + 0.4, y, x, y);
-  heartShape.bezierCurveTo(x - 0.6, y, x - 0.6, y + 0.7, x - 0.6, y + 0.7);
-  heartShape.bezierCurveTo(x - 0.6, y + 1.1, x - 0.35, y + 1.54, x + 0.5, y + 1.9);
-  heartShape.bezierCurveTo(x + 1.35, y + 1.54, x + 1.6, y + 1.1, x + 1.6, y + 0.7);
-  heartShape.bezierCurveTo(x + 1.6, y + 0.7, x + 1.6, y, x + 1.0, y);
-  heartShape.bezierCurveTo(x + 0.7, y, x + 0.5, y + 0.5, x + 0.5, y + 0.5);
-
-  const extrudeSettings = {
-    depth: 0.4,
-    bevelEnabled: true,
-    bevelSegments: 8,
-    steps: 2,
-    bevelSize: 0.1,
-    bevelThickness: 0.1,
-  };
-
   return (
-    <mesh ref={meshRef} position={[0, -0.5, 0]} rotation={[Math.PI, 0, 0]}>
-      <extrudeGeometry args={[heartShape, extrudeSettings]} />
+    <mesh ref={meshRef} position={[0, -0.5, 0]} rotation={[Math.PI, 0, 0]} geometry={geometry}>
       <meshStandardMaterial color="#ff1744" metalness={0.3} roughness={0.4} />
     </mesh>
   );
@@ -51,22 +50,27 @@ function FloatingParticles() {
   const groupRef = useRef<THREE.Group>(null);
   const elapsed = useRef(0);
 
+  // Memoize particle positions — stable across re-renders
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        position: [
+          (Math.sin(i * 1.7) * 0.5 + (i % 3 - 1)) * 2,
+          (Math.cos(i * 2.3) * 0.5 + (i % 4 - 1.5)) * 1.5,
+          (Math.sin(i * 3.1) * 0.5 + (i % 5 - 2)) * 1.5,
+        ] as [number, number, number],
+        scale: 0.03 + (i % 5) * 0.015,
+        key: i,
+      })),
+    []
+  );
+
   useFrame((_, delta) => {
     if (groupRef.current) {
       elapsed.current += delta;
       groupRef.current.rotation.y = elapsed.current * 0.2;
     }
   });
-
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    position: [
-      (Math.random() - 0.5) * 6,
-      (Math.random() - 0.5) * 6,
-      (Math.random() - 0.5) * 6,
-    ] as [number, number, number],
-    scale: Math.random() * 0.08 + 0.02,
-    key: i,
-  }));
 
   return (
     <group ref={groupRef}>
@@ -86,10 +90,23 @@ function FloatingParticles() {
 
 export default function Heart3D() {
   const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
+    setPrefersReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
   }, []);
+
+  // Users who prefer reduced motion get a static heart emoji instead
+  if (prefersReducedMotion) {
+    return (
+      <div className="w-full h-[300px] md:h-[500px] flex items-center justify-center">
+        <div className="text-8xl md:text-9xl">❤️</div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-[300px] md:h-[500px]">

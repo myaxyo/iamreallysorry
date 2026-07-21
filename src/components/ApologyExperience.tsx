@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import DramaticText from "@/components/DramaticText";
 import SorryMeterI18n from "@/components/SorryMeterI18n";
 import RunawayButtonI18n from "@/components/RunawayButtonI18n";
@@ -39,9 +39,15 @@ interface Props {
 export default function ApologyExperience({ dict, name, lang, isReceiver }: Props) {
   const { playLoop, stop } = useSounds();
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
-  void lang; // used for potential future features
+  void lang;
   void isReceiver;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 2200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleMusic = () => {
     if (musicPlaying) {
@@ -54,6 +60,47 @@ export default function ApologyExperience({ dict, name, lang, isReceiver }: Prop
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
+      {/* Splash screen — dramatic intro while 3D loads */}
+      <AnimatePresence>
+        {showSplash && (
+          <motion.div
+            key="splash"
+            className="fixed inset-0 z-[100] bg-gray-950 flex flex-col items-center justify-center"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="text-7xl md:text-8xl"
+              animate={{ scale: [1, 1.3, 1] }}
+              transition={{ repeat: Infinity, duration: 1.2 }}
+            >
+              💌
+            </motion.div>
+            <motion.p
+              className="mt-6 text-xl md:text-2xl text-gray-300 font-medium"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              {name ? `${name}, ` : ""}someone has a message for you...
+            </motion.p>
+            <motion.div
+              className="mt-4 w-48 h-1 bg-gray-800 rounded-full overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              <motion.div
+                className="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <FloatingEmojis />
 
       {/* Music toggle */}

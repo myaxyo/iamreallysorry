@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useSounds } from "./useSounds";
 
 interface Props {
@@ -20,32 +20,43 @@ export default function SorryMeterI18n({ dict }: Props) {
   const [percentage, setPercentage] = useState(0);
   const { play } = useSounds();
   const boomPlayed = useRef(false);
+  const rafRef = useRef<number>(0);
+  const startTime = useRef<number>(0);
+
+  const animate = useCallback(
+    (timestamp: number) => {
+      if (!startTime.current) startTime.current = timestamp;
+      const elapsed = timestamp - startTime.current;
+      // 20ms per 2% = ~1470ms total to reach 147%
+      const current = Math.min(Math.floor(elapsed / 10), 147);
+      setPercentage(current);
+
+      if (current >= 100 && !boomPlayed.current) {
+        boomPlayed.current = true;
+        play("vineBoom");
+      }
+
+      if (current < 147) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    },
+    [play]
+  );
 
   useEffect(() => {
     if (isInView) {
       const timer = setTimeout(() => {
-        let current = 0;
-        const interval = setInterval(() => {
-          current += 2;
-          if (current >= 147) {
-            clearInterval(interval);
-            setPercentage(147);
-          } else {
-            setPercentage(current);
-          }
-          if (current >= 100 && !boomPlayed.current) {
-            boomPlayed.current = true;
-            play("vineBoom");
-          }
-        }, 20);
-        return () => clearInterval(interval);
+        rafRef.current = requestAnimationFrame(animate);
       }, 300);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      };
     }
-  }, [isInView, play]);
+  }, [isInView, animate]);
 
   return (
-    <div ref={ref} className="w-full max-w-lg mx-auto">
+    <div ref={ref} className="w-full max-w-lg mx-auto" role="progressbar" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={147} aria-label={dict.label}>
       <div className="text-center mb-4">
         <p className="text-lg md:text-xl text-gray-300 font-medium">{dict.label}</p>
       </div>
@@ -82,7 +93,7 @@ export default function SorryMeterI18n({ dict }: Props) {
         animate={percentage > 100 ? { scale: [1, 1.1, 1] } : {}}
         transition={{ repeat: Infinity, duration: 0.8 }}
       >
-        <span className="text-5xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+        <span className="text-5xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent" aria-live="polite">
           {percentage}%
         </span>
         {percentage > 100 && (
@@ -91,6 +102,7 @@ export default function SorryMeterI18n({ dict }: Props) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
+            role="alert"
           >
             {dict.error}
           </motion.p>
