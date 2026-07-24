@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Required for self-hosted/Coolify deployment
+  output: "standalone",
+
   // Cleaner responses + smaller payloads.
   poweredByHeader: false,
   compress: true,
