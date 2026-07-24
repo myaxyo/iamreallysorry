@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  // Proxy Umami analytics through our domain to bypass ad blockers
+  async rewrites() {
+    return [
+      {
+        source: "/stats/:path*",
+        destination: "https://umami.prompter.uz/:path*",
+      },
+    ];
+  },
+
   // Safe, non-breaking response headers. Intentionally no Content-Security-Policy
   // here — a strict CSP would break the inline JSON-LD scripts and Three.js runtime.
   async headers() {

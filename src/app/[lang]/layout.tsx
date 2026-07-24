@@ -148,7 +148,7 @@ export default async function LangLayout({
       <head>
         <script
           defer
-          src="https://umami.prompter.uz/script.js"
+          src="/stats/script.js"
           data-website-id="e06a18c7-f456-494b-b2e2-4a7ee3565cfb"
         />
         <script
