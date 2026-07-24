@@ -147,6 +147,11 @@ export default async function LangLayout({
     <html lang={lang} dir={dir}>
       <head>
         <script
+          defer
+          src="https://umami.prompter.uz/script.js"
+          data-website-id="e06a18c7-f456-494b-b2e2-4a7ee3565cfb"
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
