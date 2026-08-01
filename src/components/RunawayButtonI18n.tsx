@@ -15,9 +15,20 @@ interface Props {
     successSub: string;
   };
   name?: string;
+  relationship?: string;
 }
 
-export default function RunawayButtonI18n({ dict, name }: Props) {
+// Relationship-specific success messages
+const SUCCESS_MESSAGES: Record<string, { emoji: string; text: string; sub: string }> = {
+  partner: { emoji: "🥰", text: "I LOVE YOU!!!", sub: "I promise to be better. You mean everything to me." },
+  friend: { emoji: "🤝", text: "BEST FRIENDS FOREVER!!!", sub: "I promise to be a better friend. You mean the world to me." },
+  family: { emoji: "🫂", text: "FAMILY FOREVER!!!", sub: "I promise to do better. Nothing is stronger than us." },
+  work: { emoji: "🤝", text: "THANK YOU!!!", sub: "I genuinely appreciate your understanding. I'll make it right." },
+  roommate: { emoji: "🏠", text: "PEACE RESTORED!!!", sub: "I promise to be better. Home sweet home again." },
+  other: { emoji: "😊", text: "THANK YOU!!!", sub: "I promise to be better. This means a lot to me." },
+};
+
+export default function RunawayButtonI18n({ dict, name, relationship }: Props) {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
   const [noAttempts, setNoAttempts] = useState(0);
   const [forgiven, setForgiven] = useState(false);
@@ -74,6 +85,11 @@ export default function RunawayButtonI18n({ dict, name }: Props) {
   };
 
   if (forgiven) {
+    const successMsg = relationship ? SUCCESS_MESSAGES[relationship] || SUCCESS_MESSAGES.other : null;
+    const successEmoji = successMsg?.emoji || "🥰";
+    const successText = successMsg?.text || dict.success;
+    const successSub = successMsg?.sub || dict.successSub;
+
     return (
       <motion.div
         className="text-center py-10 md:py-16 px-4"
@@ -86,24 +102,24 @@ export default function RunawayButtonI18n({ dict, name }: Props) {
           animate={{ rotate: [0, 10, -10, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          🥰
+          {successEmoji}
         </motion.div>
         <h2 className="text-3xl md:text-6xl font-bold text-white mb-4">
-          {name ? `${name}, ` : ""}{dict.success}
+          {name ? `${name}, ` : ""}{successText}
         </h2>
         <motion.p
           className="text-lg md:text-xl text-pink-300"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          {dict.successSub}
+          {successSub}
         </motion.p>
         <motion.div
           className="mt-8 text-5xl md:text-6xl"
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
-          ❤️
+          {relationship === "partner" ? "❤️" : relationship === "friend" ? "👊" : relationship === "family" ? "💛" : "🙏"}
         </motion.div>
       </motion.div>
     );

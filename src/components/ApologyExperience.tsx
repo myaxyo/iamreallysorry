@@ -339,7 +339,7 @@ export default function ApologyExperience({ dict, name, lang, isReceiver, scenar
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              {name} 💕
+              {name} {relationship === "partner" ? "💕" : relationship === "friend" ? "🤝" : relationship === "family" ? "💛" : relationship === "work" ? "🙏" : "✨"}
             </motion.p>
           )}
 
@@ -463,7 +463,7 @@ export default function ApologyExperience({ dict, name, lang, isReceiver, scenar
         <RunawayButtonI18n dict={{
           ...dict.forgive,
           question: relationshipQ || dict.forgive.question,
-        }} name={name} />
+        }} name={name} relationship={relationship} />
       </section>
 
       {/* Footer */}
