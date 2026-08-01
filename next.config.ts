@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
           { key: "X-DNS-Prefetch-Control", value: "on" },
         ],
       },
+      {
+        // Cache static assets aggressively (images, fonts, sounds)
+        source: "/(.*\\.(?:png|jpg|jpeg|gif|ico|svg|webp|woff2|woff|mp3))",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
     ];
   },
 };

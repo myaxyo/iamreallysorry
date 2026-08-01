@@ -146,6 +146,11 @@ export default async function LangLayout({
   return (
     <html lang={lang} dir={dir}>
       <head>
+        {/* Preconnects for performance (Core Web Vitals) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+        {/* Analytics */}
         <script
           defer
           src="/stats/script.js"

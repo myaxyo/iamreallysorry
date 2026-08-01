@@ -65,9 +65,9 @@ export default function LandingContent({ dict, lang }: Props) {
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Main H1 for SEO */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
             {landing.h1}
-          </h2>
+          </h1>
         </div>
 
         {/* Value proposition */}
