@@ -34,15 +34,74 @@ interface Props {
   name?: string;
   lang: string;
   isReceiver?: boolean;
+  scenario?: string;
+  relationship?: string;
+  tone?: string;
 }
 
-export default function ApologyExperience({ dict, name, lang, isReceiver }: Props) {
+// Scenario-specific subtext shown in the hero section
+const SCENARIO_SUBTEXT: Record<string, Record<string, string>> = {
+  en: {
+    forgot: "I forgot something that mattered to you, and I hate myself for it",
+    stupid: "I said something I didn't mean, and I wish I could take it back",
+    distant: "I was distant when you needed me close, and I see that now",
+    argument: "I started a fight over nothing, and you didn't deserve that",
+    promise: "I broke a promise I made to you, and I know how that feels",
+    rude: "I was rude and insensitive, and you deserved so much better",
+    lied: "I broke your trust, and I know how hard that is to rebuild",
+    ghosted: "I disappeared when I should have been there for you",
+    unknown: "I don't fully know what I did, but I know I hurt you",
+    everything: "I messed up in every possible way, and I own all of it",
+  },
+  ru: {
+    forgot: "Я забыл кое-что важное для тебя, и ненавижу себя за это",
+    stupid: "Я сказал то, что не имел в виду, и хочу забрать свои слова обратно",
+    distant: "Я был далеко, когда ты нуждалась во мне рядом",
+    argument: "Я начал ссору из-за ерунды, ты этого не заслуживала",
+    promise: "Я нарушил обещание, и я знаю как это больно",
+    rude: "Я был грубым и бестактным, ты заслуживаешь лучшего",
+    lied: "Я подорвал твоё доверие, и знаю как сложно его восстановить",
+    ghosted: "Я исчез, когда должен был быть рядом",
+    unknown: "Я не до конца понимаю что сделал, но знаю что обидел тебя",
+    everything: "Я накосячил во всём, и беру ответственность за всё",
+  },
+};
+
+// Relationship-specific question text for the forgiveness section
+const RELATIONSHIP_QUESTION: Record<string, Record<string, string>> = {
+  en: {
+    partner: "So... do you forgive your idiot partner?",
+    friend: "So... are we still friends?",
+    family: "So... can we be family again without the awkwardness?",
+    work: "So... can we go back to being professional?",
+    roommate: "So... can we coexist peacefully again?",
+    other: "So... do you forgive me?",
+  },
+  ru: {
+    partner: "Ну что... простишь своего идиота?",
+    friend: "Ну что... мы ещё друзья?",
+    family: "Ну что... можем быть семьёй без этой неловкости?",
+    work: "Ну что... вернёмся к нормальным рабочим отношениям?",
+    roommate: "Ну что... можем снова мирно сосуществовать?",
+    other: "Ну что... простишь меня?",
+  },
+};
+
+export default function ApologyExperience({ dict, name, lang, isReceiver, scenario, relationship, tone }: Props) {
   const { playLoop, stop } = useSounds();
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
 
   void lang;
   void isReceiver;
+
+  // Get scenario-specific and relationship-specific text
+  const langKey = (SCENARIO_SUBTEXT[lang] ? lang : "en") as string;
+  const scenarioText = scenario && SCENARIO_SUBTEXT[langKey]?.[scenario];
+  const relationshipQ = relationship && RELATIONSHIP_QUESTION[langKey]?.[relationship];
+
+  // Tone affects the overall vibe — meme tone gets extra emojis
+  const toneEmoji = tone === "meme" ? " 💀" : tone === "sincere" ? " 🥺" : " 🫠";
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 2200);
@@ -82,7 +141,11 @@ export default function ApologyExperience({ dict, name, lang, isReceiver }: Prop
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              {name ? `${name}, ` : ""}someone has a message for you...
+              {name ? `${name}, ` : ""}
+              {relationship === "partner" ? "your person has something to say..." :
+               relationship === "friend" ? "your friend has something to say..." :
+               relationship === "family" ? "someone in your family has a message..." :
+               "someone has a message for you..."}
             </motion.p>
             <motion.div
               className="mt-4 w-48 h-1 bg-gray-800 rounded-full overflow-hidden"
@@ -154,7 +217,7 @@ export default function ApologyExperience({ dict, name, lang, isReceiver }: Prop
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            {dict.hero.subtext} 🥺
+            {scenarioText || dict.hero.subtext}{toneEmoji}
           </motion.p>
         </motion.div>
 
@@ -259,7 +322,10 @@ export default function ApologyExperience({ dict, name, lang, isReceiver }: Prop
           text={dict.forgive.title}
           className="text-2xl md:text-5xl font-bold text-white mb-12 md:mb-16"
         />
-        <RunawayButtonI18n dict={dict.forgive} name={name} />
+        <RunawayButtonI18n dict={{
+          ...dict.forgive,
+          question: relationshipQ || dict.forgive.question,
+        }} name={name} />
       </section>
 
       {/* Footer */}

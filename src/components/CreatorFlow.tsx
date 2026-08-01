@@ -101,7 +101,13 @@ export default function CreatorFlow({ lang, dict }: Props) {
 
   const handleGenerate = () => {
     const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
-    const link = `${baseUrl}/${selectedLang}?name=${encodeURIComponent(name.trim())}`;
+    const params = new URLSearchParams({
+      name: name.trim(),
+      s: scenario,
+      r: relationship,
+      t: tone,
+    });
+    const link = `${baseUrl}/${selectedLang}?${params.toString()}`;
     setGeneratedLink(link);
     setStep(totalSteps + 1);
   };

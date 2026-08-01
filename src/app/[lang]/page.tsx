@@ -14,11 +14,21 @@ export default async function Page({ params, searchParams }: PageProps) {
   if (!hasLocale(lang)) notFound();
 
   const dict = await getDictionary(lang as Locale);
-  const { name } = await searchParams;
+  const { name, s, r, t } = await searchParams;
 
   // If there's a name param, this is a RECEIVER viewing the apology
   if (name) {
-    return <ApologyExperience dict={dict} name={name} lang={lang} isReceiver />;
+    return (
+      <ApologyExperience
+        dict={dict}
+        name={name}
+        lang={lang}
+        isReceiver
+        scenario={s}
+        relationship={r}
+        tone={t}
+      />
+    );
   }
 
   // Otherwise, this is a CREATOR discovering or building an apology
