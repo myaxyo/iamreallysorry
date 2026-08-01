@@ -87,6 +87,140 @@ const RELATIONSHIP_QUESTION: Record<string, Record<string, string>> = {
   },
 };
 
+// Relationship-specific promises — override the default romantic ones
+const RELATIONSHIP_PROMISES: Record<string, Record<string, string[]>> = {
+  en: {
+    partner: [
+      "I'll actually listen when you're talking (not just nod while thinking about food)",
+      "I'll remember the important dates (setting 47 reminders as we speak)",
+      "I'll stop doing that thing that annoys you (you know the one)",
+      "I'll give you the TV remote without a fight (most of the time)",
+      "I'll admit I'm wrong faster (starting now: I WAS WRONG)",
+    ],
+    friend: [
+      "I'll be there when you need me (not just when it's convenient for me)",
+      "I'll actually reply to your texts within the same day (revolutionary, I know)",
+      "I'll stop canceling plans last minute (my couch can wait)",
+      "I'll listen without trying to fix everything (sometimes you just need to vent)",
+      "I'll be the friend you deserve, not the one I've been lately",
+    ],
+    family: [
+      "I'll be more patient (even when we disagree on everything)",
+      "I'll call more often (not just when I need something, I promise)",
+      "I'll actually show up when I say I will",
+      "I'll respect your boundaries even when I don't fully get them",
+      "I'll remember that family means showing up — in the good times AND the bad",
+    ],
+    work: [
+      "I'll communicate more clearly (no more vague emails at 5pm Friday)",
+      "I'll respect your time and boundaries",
+      "I'll own my mistakes instead of deflecting",
+      "I'll follow through on what I commit to",
+      "I'll make sure this doesn't affect our working relationship going forward",
+    ],
+    roommate: [
+      "I'll do my dishes (the same day, not 'eventually')",
+      "I'll respect shared spaces like they're shared (because they are)",
+      "I'll communicate instead of being passive-aggressive",
+      "I'll keep the noise down (headphones exist, I just remembered)",
+      "I'll be the roommate I'd want to live with",
+    ],
+  },
+  ru: {
+    partner: [
+      "Я буду реально слушать, когда ты говоришь (а не просто кивать, думая о еде)",
+      "Я запомню все важные даты (ставлю 47 напоминалок прямо сейчас)",
+      "Я перестану делать то, что тебя бесит (ты знаешь, о чём я)",
+      "Я отдам тебе пульт от телевизора без боя (ну почти)",
+      "Я буду признавать свою неправоту быстрее (начинаю прямо сейчас: Я БЫЛ НЕПРАВ)",
+    ],
+    friend: [
+      "Я буду рядом когда нужен (не только когда мне удобно)",
+      "Я буду отвечать на сообщения в тот же день (да, это реально возможно)",
+      "Я перестану отменять планы в последний момент",
+      "Я буду слушать не пытаясь всё решить (иногда просто нужно выговориться)",
+      "Я буду другом которого ты заслуживаешь",
+    ],
+    family: [
+      "Я буду терпеливее (даже когда мы не согласны вообще ни в чём)",
+      "Я буду звонить чаще (не только когда что-то нужно)",
+      "Я буду реально приходить когда обещаю",
+      "Я буду уважать твои границы даже если не до конца их понимаю",
+      "Я запомню что семья — это быть рядом и в хорошие и в плохие времена",
+    ],
+    work: [
+      "Я буду общаться яснее (никаких размытых писем в 5 вечера пятницы)",
+      "Я буду уважать твоё время и границы",
+      "Я буду признавать ошибки вместо того чтобы перекладывать",
+      "Я буду выполнять то что обещал",
+      "Я сделаю всё чтобы это не повлияло на наши рабочие отношения",
+    ],
+    roommate: [
+      "Я буду мыть посуду (в тот же день, а не 'когда-нибудь')",
+      "Я буду относиться к общим пространствам как к общим",
+      "Я буду говорить прямо вместо пассивной агрессии",
+      "Я буду тише (наушники существуют, я только что вспомнил)",
+      "Я буду тем соседом с которым сам хотел бы жить",
+    ],
+  },
+};
+
+// Relationship-specific reasons — override the default romantic ones
+const RELATIONSHIP_REASONS: Record<string, Record<string, { emoji: string; title: string; text: string }[]>> = {
+  en: {
+    friend: [
+      { emoji: "👻", title: "I was a ghost", text: "Disappeared when you needed me. Not cool, not okay, and I see it now." },
+      { emoji: "🤡", title: "I was selfish", text: "Made it about me when it should have been about us." },
+      { emoji: "🗑️", title: "I took you for granted", text: "Acted like our friendship was unbreakable. It isn't. I know that now." },
+      { emoji: "💀", title: "I broke the bro/friend code", text: "There are lines you don't cross. I crossed one. I'm owning it." },
+    ],
+    family: [
+      { emoji: "😤", title: "I was stubborn", text: "Chose being right over being kind. That's not what family does." },
+      { emoji: "🙈", title: "I was absent", text: "Wasn't there when it mattered. Family should be the first call, not the last." },
+      { emoji: "🗑️", title: "I said hurtful things", text: "Used words I can't take back. But I can acknowledge the damage." },
+      { emoji: "💔", title: "I let you down", text: "You expected better from me. You were right to." },
+    ],
+    work: [
+      { emoji: "📧", title: "I dropped the ball", text: "Missed the deadline / forgot the task / let the team down. Fully on me." },
+      { emoji: "🤡", title: "I was unprofessional", text: "There's no excuse for how I handled that. I know better." },
+      { emoji: "😤", title: "I overstepped", text: "Crossed a boundary that shouldn't have been crossed in a professional setting." },
+      { emoji: "💀", title: "I made your job harder", text: "That wasn't fair to you. I should have been part of the solution, not the problem." },
+    ],
+    roommate: [
+      { emoji: "🗑️", title: "I was inconsiderate", text: "Living together means thinking about someone other than myself. I forgot that." },
+      { emoji: "🔊", title: "I was disrespectful of the space", text: "Noise, mess, boundaries — I crossed lines that affect your daily life." },
+      { emoji: "😤", title: "I was passive-aggressive", text: "Should have just talked to you like an adult. My bad." },
+      { emoji: "💀", title: "I made home feel uncomfortable", text: "Home should be your safe space. I messed that up." },
+    ],
+  },
+  ru: {
+    friend: [
+      { emoji: "👻", title: "Я был призраком", text: "Исчез когда ты нуждался во мне. Некруто, знаю." },
+      { emoji: "🤡", title: "Я был эгоистом", text: "Всё было обо мне, когда должно было быть о нас." },
+      { emoji: "🗑️", title: "Я воспринимал тебя как должное", text: "Думал наша дружба несокрушима. Это не так." },
+      { emoji: "💀", title: "Я нарушил кодекс дружбы", text: "Есть границы которые нельзя пересекать. Я пересёк." },
+    ],
+    family: [
+      { emoji: "😤", title: "Я был упрямым", text: "Выбрал быть правым вместо быть добрым. Семья так не делает." },
+      { emoji: "🙈", title: "Меня не было рядом", text: "Не был рядом когда это было важно." },
+      { emoji: "🗑️", title: "Я сказал обидные вещи", text: "Слова не заберёшь обратно. Но я признаю ущерб." },
+      { emoji: "💔", title: "Я подвёл тебя", text: "Ты ожидал от меня большего. И был прав." },
+    ],
+    work: [
+      { emoji: "📧", title: "Я облажался", text: "Пропустил дедлайн / забыл задачу / подвёл команду. Полностью моя вина." },
+      { emoji: "🤡", title: "Я был непрофессионален", text: "Нет оправданий тому как я себя повёл. Я знаю лучше." },
+      { emoji: "😤", title: "Я перешёл границу", text: "Пересёк черту которую не стоило пересекать в рабочей обстановке." },
+      { emoji: "💀", title: "Я усложнил твою работу", text: "Это нечестно по отношению к тебе. Я должен был быть частью решения." },
+    ],
+    roommate: [
+      { emoji: "🗑️", title: "Я был невнимательным", text: "Жить вместе значит думать о ком-то кроме себя. Я забыл." },
+      { emoji: "🔊", title: "Я не уважал пространство", text: "Шум, беспорядок, границы — я нарушил то что влияет на твою жизнь." },
+      { emoji: "😤", title: "Я был пассивно-агрессивным", text: "Нужно было просто поговорить как взрослый." },
+      { emoji: "💀", title: "Дом перестал быть комфортным", text: "Дом должен быть безопасным местом. Я это испортил." },
+    ],
+  },
+};
+
 export default function ApologyExperience({ dict, name, lang, isReceiver, scenario, relationship, tone }: Props) {
   const { playLoop, stop } = useSounds();
   const [musicPlaying, setMusicPlaying] = useState(false);
@@ -102,6 +236,10 @@ export default function ApologyExperience({ dict, name, lang, isReceiver, scenar
 
   // Tone affects the overall vibe — meme tone gets extra emojis
   const toneEmoji = tone === "meme" ? " 💀" : tone === "sincere" ? " 🥺" : " 🫠";
+
+  // Override promises and reasons based on relationship
+  const promises = (relationship && RELATIONSHIP_PROMISES[langKey]?.[relationship]) || dict.promises.items;
+  const reasons = (relationship && RELATIONSHIP_REASONS[langKey]?.[relationship]) || dict.reasons.items;
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 2200);
@@ -258,7 +396,7 @@ export default function ApologyExperience({ dict, name, lang, isReceiver, scenar
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl w-full">
-          {dict.reasons.items.map((reason, i) => (
+          {reasons.map((reason, i) => (
             <motion.div
               key={i}
               className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-5 md:p-6 hover:border-pink-500/50 transition-colors"
@@ -294,7 +432,7 @@ export default function ApologyExperience({ dict, name, lang, isReceiver, scenar
         </motion.p>
 
         <div className="max-w-2xl w-full space-y-3 md:space-y-4">
-          {dict.promises.items.map((promise, i) => (
+          {promises.map((promise, i) => (
             <motion.div
               key={i}
               className="flex items-start gap-3 md:gap-4 bg-gray-800/30 border border-gray-700/50 rounded-xl p-3 md:p-4"
